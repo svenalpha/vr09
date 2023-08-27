@@ -27,7 +27,8 @@ in package.json
           "@vitejs/plugin-react": "workspace:*",
 provoked  an error. It was changed to:
           "@vitejs/plugin-react": "^4.0.4",
-
+ express and compression moved from devDependencies to dependencies
+ "serve-static": "^1.15.0"  added as per original model above ie  ..tree/main/playground/ssr-react
 
 
 

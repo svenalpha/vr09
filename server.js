@@ -1,8 +1,10 @@
-import fs from 'node:fs'
-import path from 'node:path'
-import { fileURLToPath } from 'node:url'
-import express from 'express'
+import express from 'express';
 import mongoose from 'mongoose';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url'
+
+
 
 import WorkoutModelDb from "./src/models/workoutDbModel.js";
 import { router } from "./src/routes/workoutRoutes.js";

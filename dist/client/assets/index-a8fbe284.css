@@ -10,7 +10,7 @@ input.error{border: 1px solid var(--error); color:green;}
 
 
 
-:root {--primary: #1aac83; --error: #e7195a; --backgr: brown;}
+:root {--primary: #1aac83; --error: #e7195a; --backgr: green;}
 
 
 ._module_StrClass_38ixv_9 {color: purple; background-color: cyan;}

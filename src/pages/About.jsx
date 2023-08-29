@@ -14,7 +14,7 @@ export default function About() {
       <h4 className="strClass">using strClass from   app.css  inside About pagee</h4>  
       <h4 className={module_StrClass}>using module_StrClass within curly brackets  inside About pagee</h4>
       <h4 className={module_StrClass1}>using module_StrClass1 hhhhhhhhhh  inside About pagee</h4>
-      <h4 className={module_StrClass2}>using module_StrClass1 hhhhhhhhhh  inside About pagee</h4>
+      <h4 className={module_StrClass2}>using module_StrClass1 hhhhhvvvhhhhh  inside About pagee</h4>
 
       <div>{addAndMultiply(1, 2, 3)}</div>
       <div>{multiplyAndAdd(1, 2, 3)}</div>

@@ -7,33 +7,45 @@ const pages = import.meta.glob('./pages/*.jsx', { eager: true })
 
 const routes = Object.keys(pages).map((path) => {
   const name = path.match(/\.\/pages\/(.*)\.jsx$/)[1]
-  return {
-    name,
-    path: name === 'Home' ? '/' : `/${name.toLowerCase()}`,
-    component: pages[path].default,
-  }
-})
+  return {name,                                          
+          path: name === 'Home' ? '/' : `/${name.toLowerCase()}`,            
+          component: pages[path].default,                  
+         }                                      }
+                            
+                                     ) 
+
+const index = routes.findIndex((route) => route.name == "Home");
+const Home= routes[index];
+routes.splice(index, 1); routes.splice(0,0,Home);
+
+const index2 = routes.findIndex((route) => route.name == "Error404");
+const Error404= routes[index2]; Error404.path="*"; 
+routes.splice(index2, 1); routes.push(Error404);
 
 export function App() {
-  return (
-    <>
+  return(<>
       <nav>
         <ul>
           {routes.map(({ name, path }) => {
-            return (
-              <li key={path} style={{color: "red"}}>
-                <Link to={path}   style={{color: "green"}}  >{name}</Link>
-                {/* <h5 className="strClass">AAAAAAAAAAAAAAAA</h5>  */}
-              </li>
-            )
-          })}
+            /* console.log("in Routes ul name, path =",name, path); */
+            if (name !== "Error404"&&name !== "xxxUpdate")     
+             {return(
+                <li key={path} style={{color: "red"}}>
+                  <Link to={path}   style={{color: "green"}}>{name}</Link>
+                </li>       
+                    )
+             }                            }                      
+                     )                                                            
+          }
         </ul>
       </nav>
       <Routes>
-        {routes.map(({ path, component: RouteComp }) => {
-          return <Route key={path} path={path} element={<RouteComp />}></Route>
-        })}
+        {routes.map(({ path, component: RouteComp }) => 
+          {console.log("path =",path);
+          console.log("element =",RouteComp );
+            return <Route key={path} path={path} element={<RouteComp />}></Route>
+          }        )            
+        }                 
       </Routes>
-    </>
-  )
+     </>)  
 }

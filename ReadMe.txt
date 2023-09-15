@@ -1,6 +1,18 @@
+
+created with TNN mern stack video and ssr-react scaffold. ie connects to 
+mongoDB and has afront end and backend. minimal css. No security 
+ie no helmet/passport etc 
+measures. 
+
 started with a08/vr08
 - then added TNN mern stack tutorial stuff:
-- doesn't contain security measures
+- doesn't contain security measures 
+ - patch route added
+
+https://www.youtube.com/watch?v=98BzS5Oz5E4&list=PL4cUxeGkcC9iJ_KkrkBZWZRHVwnzLIoUE
+but videos saved in c:\web\00Videos_web
+files saved at:  https://github.com/iamshaunjp/MERN-Stack-Tutorial
+
 
 do: npm run dev   //  for development version     
 do: npm run build  // for production version (ie creates dist directory)
@@ -19,6 +31,7 @@ package.json updated with newest version
 2)  a bit of css added
 3)another page "extra" added
 4) UseEffectFetchData added 
+5) the 404 solution not in effect
 
 
 
@@ -41,27 +54,15 @@ routes removed from server.js to workoutRoutes.js. POST & GET functions in turn 
 call functions in workoutController.js. Only 2 just for proof of concept. 
 
 
+in App.jsx, Home is moved to first in menu, Error404 is moved to last and path                                      
+changed to "*"  for catch-all
 
-
-const WorkoutDisplayDetails =({workout})=>
-{return(<>
-  <div className="workout-details">
-   <h4>inside WorkoutDisplayDetails.js</h4>
-    <h4>{workout.title}</h4>
-    <p><strong>load in kg: </strong>{workout.load}</p>
-    <p><strong>Reps: </strong>{workout.reps}</p>
-    <p>{workout.createdAt}</p>
- </div>
-    </>)
-}
-
-export default WorkoutDisplayDetails;
+update system with popup window toggled with setDoUpdate useState hook  is 
+passed from WorkoutDisplayDetails to UpdateWorkoutForm
 
 
 
-
-
-the "error message" notice uses class name change to toggle highlightof 
+the "error message" notice uses class name change to toggle highlight of 
 missed entry fields. 
 
 .module_StrClass inside css1.module.css file is used in About.jsx with
@@ -72,5 +73,16 @@ import {module_StrClass}  from "../css1.module.css";  // ie only 1 class is impo
 
 /* conditional classes. see CreateWorkoutForm   input */
 input.error{border: 1px solid var(--error); color:green;}
+
+
+404 error message fixed: see react404reload.txt 
+
+
+
+
+
+
+
+
 
 

@@ -1,22 +1,29 @@
-import {useEffect} from "react";    //xxx useState 
+import { useEffect } from "react";    //xxx useState 
 import {WorkoutDisplayDetails} from "../components/WorkoutDisplayDetails.jsx"
 import {CreateWorkoutForm} from "../components/CreateWorkoutForm.jsx"
+import {UpdateWorkoutForm} from "../components/UpdateWorkoutForm.jsx"
 
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext.jsx";
 
+
+
 const url = 'http://localhost:5173/api/workout';  //  const url = 'https://api.github.com/users';  
+//'mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority';
 
 export default function GetWorkouts() 
 {
-// xxx  const [workouts, setWorkouts] = useState(null);
+ // xxx  const [workouts, setWorkouts] = useState(null);
 console.log("in GetWorkouts  pre useWorkoutsContext");
 const {workouts,dispatch} = useWorkoutsContext();  
 console.log("in GetWorkouts  workouts = ",workouts);
 console.log("in GetWorkouts  post useWorkoutsContext");
 useEffect(() => { getAllWorkouts(); },[]);
 
+
+
 const getAllWorkouts = async () => 
  {console.log("in GetWorkouts/getAllWorkouts first line");
+  console.log("url = ",url);
   const response = await fetch(url);
   const json = await response.json();
   console.log("in getAllWorkouts, response = ",response);
@@ -30,8 +37,6 @@ const getAllWorkouts = async () =>
 
 return(<>     
 
-
-
  <h1>GetWorkouts</h1>
  <h4>iiiiiiiinside GetWorkouts</h4>
 
@@ -39,10 +44,10 @@ return(<>
  <div className="workouts">
    <h4>beginning inside GetWorkouts.jsx</h4>  
    {workouts && workouts.map((workout)=>(     // ie only fires if workouts is positive 
-    <div key={workout._id}>                                 
-    <p>{workout.title}</p>                     
-    </div>                              )               
-                            )  
+                <div key={workout._id}>                                 
+                  <p>{workout.title}</p>                     
+                </div>                  )                          
+                            )                
    }  
    <h4>ending inside GetWorkouts.jsx</h4>  
    <CreateWorkoutForm />             
@@ -53,11 +58,12 @@ return(<>
  <div className="workouts">
  <h4>beginning loop to GetWorkouts/WorkoutDisplyDetails</h4>
    {workouts && workouts.map((workout)=>(     // ie only fires if workouts is positive 
-    <WorkoutDisplayDetails key={workout._id} workout ={workout} />                                  
+                <WorkoutDisplayDetails key={workout._id} workout ={workout} />                                  
                                         )                                           
                             ) 
    }  
- <h4>end loop to GetWorkouts/WorkoutDisplyDetails</h4>                                                                                                                  
+ <h4>end loop to GetWorkouts/WorkoutDisplyDetails</h4>
+ {/* <UpdateWorkoutForm /> */}                                                                                                                 
  </div>   {/*  end   {workouts && workouts.map   */}                  
 
 

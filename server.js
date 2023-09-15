@@ -42,6 +42,11 @@ app.use((req,res,next)=>{console.log("req.path =",req.path);
                         }                      
        );                               
 app.use(express.json());
+app.use((req,res,next)=>{//console.log("in server.js, testing middleware  req.path =",req.path);   
+  //console.log("req.method =",req.method);
+  next();   
+ }                                       
+);  
 app.use("/api/workout",router);  /* app.use("/src/routes/workout", router);??? */
        
  
@@ -49,7 +54,7 @@ app.use("/api/workout",router);  /* app.use("/src/routes/workout", router);??? *
 //  in password:654321@a ; may need to escape @ with %40     
 const dbURI='mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority';                                                                                                                       
 mongoose.connect(dbURI, {UseNewUrlParser: true,UseUnifiedTopology:true})                                                                                                                                       
- .then((result)=>{app.listen(process.env.PORT || 3333); //ie localhost:3333   // 5731 ???
+ .then((result)=>{app.listen(process.env.PORT || 3334); //ie localhost:3333   // 5731 ???
                   console.log("connected to daaaata base");
                  })
  .catch((err)=>console.log(err));

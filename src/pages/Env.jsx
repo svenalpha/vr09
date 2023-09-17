@@ -1,5 +1,5 @@
 export default function Env() {
-  let msg = 'default message here in Env removed Navigate'
+  let msg = 'default message here in Env post removed Navigate'
   try {
     msg = process.env.MY_CUSTOM_SECRET || msg
   } catch {}

@@ -1,13 +1,12 @@
 import { Link, Route, Routes, Navigate } from 'react-router-dom'
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext.jsx";
 import { UpdateWorkoutForm } from "./UpdateWorkoutForm.jsx";
-import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 export const WorkoutDisplayDetails =({workout})=>
 {const [doUpdate,setDoUpdate] = useState(false); 
 const {dispatch} = useWorkoutsContext();
-const navigate = useNavigate();
+
 
 const handleClickDelete = async ()=>
   {const response = await fetch("/api/workout/" + workout._id,{method:"DELETE"});

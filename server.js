@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import fs from 'node:fs';
 import path from 'node:path';
+import cors from 'cors';
 import { fileURLToPath } from 'node:url'
 
 
@@ -33,7 +34,8 @@ export async function createServer(
     ? fs.readFileSync(resolve('dist/client/index.html'), 'utf-8')
     : ''
 
-const app = express()
+const app = express();
+app.use(cors());
 
   // middleware
 app.use((req,res,next)=>{console.log("req.path =",req.path);   

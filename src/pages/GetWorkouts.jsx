@@ -7,11 +7,14 @@ import { useWorkoutsContext } from "../hooks/useWorkoutsContext.jsx";
 
 
 
-const url = 'http://localhost:5173/api/workout';  //  const url = 'https://api.github.com/users';  
+ //  const url = 'https://api.github.com/users';  
 //'mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority';
 
 export default function GetWorkouts() 
 {
+  const url = 'http://localhost:5173/api/workout'; 
+
+
  // xxx  const [workouts, setWorkouts] = useState(null);
 console.log("in GetWorkouts  pre useWorkoutsContext");
 const {workouts,dispatch} = useWorkoutsContext();  

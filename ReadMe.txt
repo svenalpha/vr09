@@ -1,6 +1,6 @@
 
 created with TNN mern stack video and ssr-react scaffold. ie connects to 
-mongoDB and has afront end and backend. minimal css. No security 
+mongoDB and has a front end and backend. minimal css. No security 
 ie no helmet/passport etc 
 measures. 
 

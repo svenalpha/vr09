@@ -3,12 +3,14 @@ import mongoose from 'mongoose';
 import fs from 'node:fs';
 import path from 'node:path';
 import cors from 'cors';
+
 import { fileURLToPath } from 'node:url'
 
 
 
 import WorkoutModelDb from "./src/models/workoutDbModel.js";
 import { router } from "./src/routes/workoutRoutes.js";
+import "dotenv/config";
 
 //const mongoose =require("mongoose");
 //const Blag = require("./models/blogModel");
@@ -53,10 +55,13 @@ app.use("/api/workout",router);  /* app.use("/src/routes/workout", router);??? *
        
  
 //  app.listen(process.env.PORT || 3333); alternative below as part of logging in to mongoose
-//  in password:654321@a ; may need to escape @ with %40     
+//  in password:654321@a ; may need to escape @ with %40  
+
+//login string passed to .env   
 const dbURI='mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority';                                                                                                                       
-mongoose.connect(dbURI, {UseNewUrlParser: true,UseUnifiedTopology:true})                                                                                                                                       
- .then((result)=>{app.listen(process.env.PORT || 5173); //  3333/3334 ie localhost:3333   // 5731 ???
+let api_key = process.env["MONGO_URI_FROM_ENV"];
+mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})                                                                                                                                       
+ .then((result)=>{app.listen(process.env.PORT || 3334); //  3333/3334 ie localhost:3333   // 5731 ???
                   console.log("connected to daaaata base");
                  })
  .catch((err)=>console.log(err));

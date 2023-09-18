@@ -28,7 +28,7 @@ router.get("/about",(req,res)=>{res.json({mssg: "inside About in workout.js"});
 
 
 // GET all entries
-router.get("/",  getAllWorkoutEntries);  //see export const getAllWorkoutEntries in workoutController.js
+router.get("/", getAllWorkoutEntries);  //see export const getAllWorkoutEntries in workoutController.js
 
 
 // Get single entry    // in this case function body not moved to  workoutController.js        

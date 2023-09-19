@@ -5,3 +5,4 @@ export default function Env() {
   } catch {}
   return <h1>{msg}</h1>
 }
+

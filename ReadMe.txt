@@ -81,7 +81,7 @@ input.error{border: 1px solid var(--error); color:green;}
 
 
 
- "vite": "^4.4.9"
+  "dotenv": "^16.3.1",
 
 
 

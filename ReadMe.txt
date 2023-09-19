@@ -79,9 +79,13 @@ input.error{border: 1px solid var(--error); color:green;}
 
 
 
-
-  "compression": "^1.7.4",
+    <WorkoutsContextProvider>
+      <App />
+    </WorkoutsContextProvider>
  
+       <WorkoutsContextProvider>
+         <App />
+      </WorkoutsContextProvider>
 
  "@vitejs/plugin-react": "^4.0.4",
 

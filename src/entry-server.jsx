@@ -9,9 +9,7 @@ export function render(url, context) {
 
   return ReactDOMServer.renderToString(
     <StaticRouter location={url} context={context}>
-      <WorkoutsContextProvider>
-         <App />
-      </WorkoutsContextProvider>
+ <App />
     </StaticRouter>,
   )
 }

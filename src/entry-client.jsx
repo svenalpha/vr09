@@ -6,7 +6,9 @@ import { WorkoutsContextProvider } from "./context/WorkoutContext.jsx";
 ReactDOM.hydrateRoot(
   document.getElementById('app'),
   <BrowserRouter>
-<App />
+    <WorkoutsContextProvider>
+      <App />
+    </WorkoutsContextProvider>
   </BrowserRouter>,
 )
 console.log('hydrated')

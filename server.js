@@ -37,7 +37,7 @@ export async function createServer(
     : ''
 
 const app = express();
-//app.use(cors());
+app.use(cors());
 
   // middleware
 app.use((req,res,next)=>{console.log("req.path =",req.path);   

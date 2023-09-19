@@ -14,13 +14,13 @@ const routes = Object.keys(pages).map((path) => {
                             
                                      ) 
 
-const index = routes.findIndex((route) => route.name == "Home");
-const Home= routes[index];
-routes.splice(index, 1); routes.splice(0,0,Home);
+//const index = routes.findIndex((route) => route.name == "Home");
+//const Home= routes[index];
+//routes.splice(index, 1); routes.splice(0,0,Home);
 
-const index2 = routes.findIndex((route) => route.name == "Error404");
-const Error404= routes[index2]; Error404.path="/*"; 
-routes.splice(index2, 1); routes.push(Error404);
+//const index2 = routes.findIndex((route) => route.name == "Error404");
+//const Error404= routes[index2]; Error404.path="/*"; 
+//routes.splice(index2, 1); routes.push(Error404);
 
 export function App() {
   return(<>

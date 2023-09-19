@@ -48,27 +48,27 @@ return(<>
  {/* display not using  dedicated component file  */}       
  <div className="workouts">
    <h4>beginning inside GetWorkouts.jsx</h4>  
-{/*
+
     {workouts && workouts.map((workout)=>(     // ie only fires if workouts is positive 
                 <div key={workout._id}>                                 
                   <p>{workout.title}</p>                     
                 </div>                  )                          
                             )                
     }
-*/}      
+      
    <h4>ending inside GetWorkouts.jsx</h4>  
-{/*   <CreateWorkoutForm />  */}             
+   <CreateWorkoutForm />               
  </div>   {/*  end   {workouts && workouts.map   */}   
 
 
  {/* alternative display, using dedicated component file  */}    
  <div className="workouts">
  <h4>beginning loop to GetWorkouts/WorkoutDisplyDetails</h4>
-  {/* {workouts && workouts.map((workout)=>(     // ie only fires if workouts is positive 
+   {workouts && workouts.map((workout)=>(     // ie only fires if workouts is positive 
                 <WorkoutDisplayDetails key={workout._id} workout ={workout} />                                  
                                         )                                           
                             ) 
-   } */} 
+   }  
  <h4>end loop to GetWorkouts/WorkoutDisplyDetails</h4>
  {/* <UpdateWorkoutForm /> */}                                                                                                                 
  </div>   {/*  end   {workouts && workouts.map   */}                  

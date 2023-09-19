@@ -37,7 +37,7 @@ export async function createServer(
     : ''
 
 const app = express();
-app.use(cors());
+//app.use(cors());
 
   // middleware
 app.use((req,res,next)=>{console.log("req.path =",req.path);   
@@ -58,13 +58,13 @@ app.use("/api/workout",router);  /* app.use("/src/routes/workout", router);??? *
 //  in password:654321@a ; may need to escape @ with %40  
 
 //login string passed to .env   
-const dbURI='mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority';                                                                                                                       
-let api_key = process.env["MONGO_URI_FROM_ENV"];
-mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})                                                                                                                                       
- .then((result)=>{app.listen(process.env.PORT || 3334); //  3333/3334 ie localhost:3333   // 5731 ???
-                  console.log("connected to daaaata base");
-                 })
- .catch((err)=>console.log(err));
+//const dbURI='mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority';                                                                                                                       
+//let api_key = process.env["MONGO_URI_FROM_ENV"];
+//mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})                                                                                                                                       
+// .then((result)=>{app.listen(process.env.PORT || 3334); //  3333/3334 ie localhost:3333   // 5731 ???
+//                  console.log("connected to daaaata base");
+//                 })
+// .catch((err)=>console.log(err));
 
 
 
@@ -147,10 +147,45 @@ mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
   return { app, vite }
 }
 
-if (!isTest) {
-  createServer().then(({ app }) =>
-    app.listen(5173, () => {
-      console.log('http://localhost:5173')
-    }),
-  )
-}
+
+
+
+//  app.listen(process.env.PORT || 3333); alternative below as part of logging in to mongoose
+//  in password:654321@a ; may need to escape @ with %40  
+// login string passed to .env   const dbURI='mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority';                                                                                                                       
+let api_key = process.env['MONGO_URI_FROM_ENV'];
+
+if (!isTest)
+  {
+mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
+.then(createServer().then(({ app }) =>//{app.listen(5173); //ie localhost:3333/3334   // 5173        
+                                      // console.log("with (!isTest) connected to daaaata base");
+                                      //}                                                                            
+                                      app.listen(5173, () => {
+                                        console.log('http://localhost:5173 with (!isTest) connected to daaaata base ')
+                                      }),
+                         )
+     )                                                                      
+ .catch((err)=>console.log(err));
+  }
+//  else    //  ie (isTest)
+//  {mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})                                                                                                                                       
+//    .then((result)=>{app.listen(process.env.PORT || 3334); //ie localhost:3333/3334   // 5173        
+//                     console.log("connected to daaaata base");
+//                    })
+//    .catch((err)=>console.log(err));
+//  }  // end   if (!isTest)
+//
+
+
+
+
+
+
+//if (!isTest) {
+//  createServer().then(({ app }) =>
+//    app.listen(5173, () => {
+//      console.log('http://localhost:5173')
+//    }),
+//  )
+//}

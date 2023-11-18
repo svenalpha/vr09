@@ -88,3 +88,39 @@ input.error{border: 1px solid var(--error); color:green;}
 MONGO_URI_FROM_ENV=mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/?retryWrites=true&w=majority
 MONGO_URI_FROM_ENV=mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority
 MONGO_URI_FROM_ENV=mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/?retryWrites=true&w=majority
+
+latest connection string
+MONGO_URI_FROM_ENV=mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/?retryWrites=true&w=majority
+
+6j5pbHRxwLanqaq4   = new password instead 654321%40a
+includes mongodb.net/cluster0 ??
+
+
+
+///// code snippet from mongo db for connection from node //////////////////////   //     
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://userx:<password>@cluster0.t8319.mongodb.net/?retryWrites=true&w=majority";
+// Create a MongoClient with a MongoClientOptions object to set the Stable API version
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+async function run() {
+  try {
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    await client.close();
+  }
+}
+run().catch(console.dir);
+
+/////////////  end code snippet /////////////
+

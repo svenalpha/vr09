@@ -38,7 +38,7 @@ export async function createServer(
 
 const app = express();   
 //app.use(cors());
-app.use(cors({origin:"https://slug-panel.onrender.com"
+app.use(cors({origin:"https://vr09.onrender.com"
 
              }));
 app.options('*',cors());             

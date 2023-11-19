@@ -36,8 +36,12 @@ export async function createServer(
     ? fs.readFileSync(resolve('dist/client/index.html'), 'utf-8')
     : ''
 
-const app = express();
-app.use(cors());
+const app = express();   
+//app.use(cors());
+app.use(cors({origin:"https://slug-panel.onrender.com"
+
+             }));
+app.options('*',cors());             
 
   // middleware
 app.use((req,res,next)=>{console.log("req.path =",req.path);   

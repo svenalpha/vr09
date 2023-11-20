@@ -171,7 +171,7 @@ mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
                                       }),
                          )
      )                                                                      
- .catch((err)=>console.log(err));
+ .catch((err)=>console.log("mongoose connect error: ",err));
   }
 //  else    //  ie (isTest)
 //  {mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})                                                                                                                                       

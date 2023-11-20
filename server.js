@@ -38,8 +38,9 @@ export async function createServer(
 
 const app = express();   
 //app.use(cors());
-app.use(cors({origin:"https://vr09.onrender.com"
-
+app.use(cors({origin:"https://vr09.onrender.com",
+              headers: ["Content-Type"],       
+              credentials: true,
              }));
 app.options('*',cors());             
 

@@ -160,10 +160,11 @@ app.use("/api/workout",router);  /* app.use("/src/routes/workout", router);??? *
 // login string passed to .env   const dbURI='mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority';                                                                                                                       
 let api_key = process.env['MONGO_URI_FROM_ENV'];
 
+
 if (!isTest)
   {
      
-mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
+await mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
 .then(createServer().then(({ app }) =>//{app.listen(5173); //ie localhost:3333/3334   // 5173        
                                       // console.log("with (!isTest) connected to daaaata base");
                                       //}                                                                            
@@ -174,6 +175,27 @@ mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
      )                                                                      
  .catch((err)=>console.log("mongoose connect error: ",err));
   }
+
+
+
+//    below working version  except for deployment //////////////////////////////////
+//if (!isTest)
+//  {
+// mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
+//.then(createServer().then(({ app }) =>//{app.listen(5173); //ie localhost:3333/3334   // 5173        
+//                                      // console.log("with (!isTest) connected to daaaata base");
+//                                      //}                                                                            
+//                                      app.listen((process.env.PORT || 5173), () => {
+//                                      console.log('http://localhost:5173 with (!isTest) connected to daaaata base process.env.PORT ',process.env.PORT)
+//                                      }),
+//                         )
+//     )                                                                      
+// .catch((err)=>console.log("mongoose connect error: ",err));
+//  }
+ ///  end  below working version  except for deployment //////////////////////////////////
+
+
+
 //  else    //  ie (isTest)
 //  {mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})                                                                                                                                       
 //    .then((result)=>{app.listen(process.env.PORT || 3334); //ie localhost:3333/3334   // 5173        
@@ -182,10 +204,6 @@ mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
 //    .catch((err)=>console.log(err));
 //  }  // end   if (!isTest)
 //
-
-
-
-
 
 
 //if (!isTest) {

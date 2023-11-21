@@ -6,7 +6,8 @@ import cors from 'cors';
 
 import { fileURLToPath } from 'node:url'
 
-
+//const { MongoClient, ServerApiVersion } = require('mongodb');
+import { MongoClient, ServerApiVersion } from 'mongodb';
 
 import WorkoutModelDb from "./src/models/workoutDbModel.js";
 import { router } from "./src/routes/workoutRoutes.js";
@@ -161,9 +162,37 @@ app.use("/api/workout",router);  /* app.use("/src/routes/workout", router);??? *
 let api_key = process.env['MONGO_URI_FROM_ENV'];
  //api_key = "asdfghjkl";
 
-if (!isTest)
-  {run_connect();
-  } 
+
+
+
+const uri = "mongodb+srv://userx:6j5pbHRxwLanqaq4@cluster0.t8319.mongodb.net/?retryWrites=true&w=majority";
+
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
+
+if (!isTest) {run_connect2();}
+
+async function run_connect2() {                        
+  try {                                              
+    // Connect the client to the server	(optional starting in v4.7)
+    await client.connect();                                  
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {                                              
+    // Ensures that the client will close when you finish/error
+    await client.close();                            
+  }                                      
+                                           
+run_connect2().catch(console.dir);         
+                              }       
+
+
   
 function run_connect(){  
 mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})

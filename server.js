@@ -159,7 +159,7 @@ app.use("/api/workout",router);  /* app.use("/src/routes/workout", router);??? *
 //  in password:654321@a ; may need to escape @ with %40  
 // login string passed to .env   const dbURI='mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority';                                                                                                                       
 let api_key = process.env['MONGO_URI_FROM_ENV'];
-
+ //api_key = "asdfghjkl";
 
 if (!isTest)
   {run_connect();
@@ -175,7 +175,7 @@ await mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
                                       }),                    
                          )                         
      )                                                                      
- .catch((err)=>console.log("mongoose connect error: ",err));
+ .catch((err)=>console.log("mongoose connnnect error: ",err));
                             }                                                                                                                                      
                                    
                                                             

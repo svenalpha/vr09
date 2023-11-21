@@ -162,22 +162,24 @@ let api_key = process.env['MONGO_URI_FROM_ENV'];
 
 
 if (!isTest)
-  {
-     
+  {run_connect();
+  } 
+  
+async function run_connect(){  
 await mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
 .then(createServer().then(({ app }) =>//{app.listen(5173); //ie localhost:3333/3334   // 5173        
                                       // console.log("with (!isTest) connected to daaaata base");
                                       //}                                                                            
                                       app.listen((process.env.PORT || 5173), () => {
-                                      console.log('http://localhost:5173 with (!isTest) connected to daaaata base process.env.PORT ',process.env.PORT)
-                                      }),
-                         )
+                                      console.log('http://localhost:5173 with (!isTest) connected to 3daaaata base process.env.PORT ',process.env.PORT)
+                                      }),                    
+                         )                         
      )                                                                      
  .catch((err)=>console.log("mongoose connect error: ",err));
-  }
-
-
-
+                            }                                                                                                                                      
+                                   
+                                                            
+                                                     
 //    below working version  except for deployment //////////////////////////////////
 //if (!isTest)
 //  {

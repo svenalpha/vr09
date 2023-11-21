@@ -86,7 +86,7 @@ input.error{border: 1px solid var(--error); color:green;}
  "@vitejs/plugin-react": "^4.0.4",
 
 MONGO_URI_FROM_ENV=mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/?retryWrites=true&w=majority
-MONGO_URI_FROM_ENV=mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority
+MONGO_URI_FROM_ENV=mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority  // working example
 MONGO_URI_FROM_ENV=mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/?retryWrites=true&w=majority
 
 latest connection string

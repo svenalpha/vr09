@@ -12,7 +12,11 @@ import { MongoClient, ServerApiVersion } from 'mongodb';
 import WorkoutModelDb from "./src/models/workoutDbModel.js";
 import { router } from "./src/routes/workoutRoutes.js";
 import "dotenv/config";
-
+const httpOptions = {headers: new HttpHeaders({'Access-Control-Allow-Origin':'*',
+                                                'Authorization': 'authkey',
+                                                'userid': '1'      
+                                              })
+                    };                                                           
 //const mongoose =require("mongoose");
 //const Blag = require("./models/blogModel");
 
@@ -59,7 +63,11 @@ app.use((req,res,next)=>{//console.log("in server.js, testing middleware  req.pa
 );  
 app.use("/api/workout",router);  /* app.use("/src/routes/workout", router);??? */
        
- 
+app.use(function (req,res,next){
+                                res.header("Access-Control-Allow-Origin","*");
+                                res.header("Access-Control-Allow-Methods","GET,HEAD,OPTIONS,POST,PUT,DELETE");
+                                res.header("Access-Control-Allow-Headers","Origin,X-Requested-With,Content-Type,Accept,Authorization");
+                               });       
 //  app.listen(process.env.PORT || 3333); alternative below as part of logging in to mongoose
 //  in password:654321@a ; may need to escape @ with %40  
 

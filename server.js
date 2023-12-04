@@ -12,11 +12,15 @@ import { MongoClient, ServerApiVersion } from 'mongodb';
 import WorkoutModelDb from "./src/models/workoutDbModel.js";
 import { router } from "./src/routes/workoutRoutes.js";
 import "dotenv/config";
-const httpOptions = {headers: new HttpHeaders({'Access-Control-Allow-Origin':'*',
-                                                'Authorization': 'authkey',
-                                                'userid': '1'      
-                                              })
-                    };                                                           
+
+//////////// cors solution attempt 1     /////////////////////////
+//const httpOptions = {headers: new HttpHeaders({'Access-Control-Allow-Origin':'*',
+//                                                'Authorization': 'authkey',
+//                                                'userid': '1'      
+//                                              })      
+//                    };                                
+////////////// end  cors solution attempt 1     ///////////////               
+                    
 //const mongoose =require("mongoose");
 //const Blag = require("./models/blogModel");
 
@@ -62,7 +66,8 @@ app.use((req,res,next)=>{//console.log("in server.js, testing middleware  req.pa
  }                                       
 );  
 app.use("/api/workout",router);  /* app.use("/src/routes/workout", router);??? */
-       
+
+/*BB
 var enableCORS=function (req,res,next){
                                 res.header("Access-Control-Allow-Origin","*");
                                 res.header("Access-Control-Allow-Methods","GET,HEAD,OPTIONS,POST,PUT,DELETE");
@@ -70,7 +75,9 @@ var enableCORS=function (req,res,next){
                                if ('OPTIONS' == req.method) {res.send(200);}
                                                        else {next();};
                                };
- app.configure(function(){app.use(enableCORS);});                                     
+ app.configure(function(){app.use(enableCORS);});    
+ BB*/
+ 
 //  app.listen(process.env.PORT || 3333); alternative below as part of logging in to mongoose
 //  in password:654321@a ; may need to escape @ with %40  
 
@@ -172,11 +179,34 @@ var enableCORS=function (req,res,next){
 // login string passed to .env   const dbURI='mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority';                                                                                                                       
 let api_key = process.env['MONGO_URI_FROM_ENV'];
  //api_key = "asdfghjkl";
+//const uri = "mongodb+srv://userx:6j5pbHRxwLanqaq4@cluster0.t8319.mongodb.net/?retryWrites=true&w=majority";
+const uri = "mongodb+srv://userx:6j5pbHRxwLanqaq4@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority";
+//  works    mongodb+srv://userx:6j5pbHRxwLanqaq4@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority
+
+//    below working version  except for deployment //////////////////////////////////
+if (!isTest)
+  {
+ mongoose.connect(uri, {UseNewUrlParser: true,UseUnifiedTopology:true})
+.then(createServer().then(({ app }) =>//{app.listen(5173); //ie localhost:3333/3334   // 5173        
+                                      // console.log("with (!isTest) connected to daaaata base");
+                                      //}                                                                            
+                                      app.listen((process.env.PORT || 5173), () => {
+                                      console.log('http://localhost:5173 with (!isTest) connected to daaaata base process.env.PORT ',process.env.PORT)
+                                      }),
+                         )
+     )                                                                      
+ .catch((err)=>console.log("mongoose connect error: ",err));
+  }
+///  end  below working version  except for deployment //////////////////////////////////
 
 
 
 
-const uri = "mongodb+srv://userx:6j5pbHRxwLanqaq4@cluster0.t8319.mongodb.net/?retryWrites=true&w=majority";
+
+
+
+
+/*AA
 
 const client = new MongoClient(uri, {
   serverApi: {
@@ -217,7 +247,7 @@ mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
      )                                                                      
  .catch((err)=>console.log("mongoose connnnect error: ",err));
                             }                                                                                                                                      
-                                   
+AA*/                                   
                                                             
                                                      
 //    below working version  except for deployment //////////////////////////////////

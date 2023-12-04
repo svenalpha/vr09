@@ -23,6 +23,13 @@ const Error404= routes[index2]; Error404.path="/*";
 routes.splice(index2, 1); routes.push(Error404);
 
 export function App() {
+// hydrate error solution. see ReadMe.txt  vr08  ////////
+const [Show, setShow] = useState(false);
+useEffect(()=>{setShow(true)},[]);
+if (!Show) {return null} 
+/////   end  hydrate error solution. see ReadMe.txt  vr08  ////////
+
+
   return(<>
       <nav>
         <ul>

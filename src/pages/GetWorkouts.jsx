@@ -29,6 +29,7 @@ const getAllWorkouts = async () =>
  {console.log("in GetWorkouts/getAllWorkouts first line");
   console.log("url = ",url);
   const response = await fetch(url);
+  console.log("between const response and const json. reponse = ",response);
   const json = await response.json();
   console.log("in getAllWorkouts, response = ",response);
   console.log("in getAllWorkouts, json = ",json);

@@ -14,11 +14,11 @@ export const getEnv =  (req,res)=>{
 
 //  GET all entries
 
-export const getAllWorkoutEntries = async  (req,res,next)=>{   
+export const getAllWorkoutEntries = async  (req,res)=>{   
     console.log("inside workoutController.js getAllWorkoutEntries ");            
     const workouts = await WorkoutModelDb.find({}).sort({createdAt: -1});  // ie find all, sorted in descending order       
                                     // ....find({reps:20}).... finds all entries where reps=20
-                                    next();
+                                    
                                     return res.status(200).json(workouts);     
                                                      }                                        
     //return res.json({mssg: "GET all entries"}); 

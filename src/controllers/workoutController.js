@@ -18,7 +18,8 @@ export const getAllWorkoutEntries = async  (req,res,next)=>{
     console.log("inside workoutController.js getAllWorkoutEntries ");            
     const workouts = await WorkoutModelDb.find({}).sort({createdAt: -1});  // ie find all, sorted in descending order       
                                     // ....find({reps:20}).... finds all entries where reps=20
-    return res.status(200).json(workouts);            }                  
+    return res.status(200).json(workouts);     
+    next();                                                 }                                        
     //return res.json({mssg: "GET all entries"}); 
     //return;
  

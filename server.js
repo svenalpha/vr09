@@ -13,6 +13,8 @@ import WorkoutModelDb from "./src/models/workoutDbModel.js";
 import { router } from "./src/routes/workoutRoutes.js";
 import "dotenv/config";
 
+
+
 //////////// cors solution attempt 1     /////////////////////////
 //const httpOptions = {headers: new HttpHeaders({'Access-Control-Allow-Origin':'*',
 //                                                'Authorization': 'authkey',
@@ -46,12 +48,14 @@ export async function createServer(
     : ''
 
 const app = express();   
+
+app.use(cors());
 //app.use(cors());
-app.use(cors({origin:"https://vr09.onrender.com",
-              headers: ["Content-Type"],       
-              credentials: true,
-             }));
-app.options('*',cors());             
+//app.use(cors({origin:"https://vr09.onrender.com",
+//              headers: ["Content-Type"],       
+//              credentials: true,
+//             }));
+//app.options('*',cors());             
 
   // middleware
 app.use((req,res,next)=>{console.log("req.path =",req.path);   

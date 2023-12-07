@@ -73,13 +73,13 @@ router.delete("/:id",async (req,res)=>{
 
 
 
-router.get("/*",(req,res,next)=>{/* res.json({mssg: "404/404/404/404"}); */       
+router.get("/*",(req,res)=>{/* res.json({mssg: "404/404/404/404"}); */       
                            /* res.sendFile('../pages/Error404',{root: __dirname});   */  
                            /* res.render('../pages/Error404',{root: __dirname});  */  
                            /* console.log("inside router.get(/*"); */
                            /* res.redirect("/Error404");  */
                            console.log("in router.get(/*  etc");
-                           next();  return("aaaaaaargh"); 
+                           return("aaaaaaargh"); 
                           }                              
           );                                                
 

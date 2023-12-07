@@ -138,7 +138,7 @@ var enableCORS=function (req,res,next){
 // routes would be here, but moved to routes/workoutRoutes
 
 
-  app.use('*', async (req, res) => {
+  app.use('*', async (req, res, next) => {
     try {
       const url = req.originalUrl
 
@@ -169,7 +169,7 @@ var enableCORS=function (req,res,next){
       !isProd && vite.ssrFixStacktrace(e)
       console.log(e.stack)
       res.status(500).end(e.stack)
-    }
+    }   next();
   })
 
   return { app, vite }

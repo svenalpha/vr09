@@ -26,7 +26,9 @@ useEffect(() => { getAllWorkouts(); },[]);
 const getAllWorkouts = async () => 
  {console.log("in GetWorkouts/getAllWorkouts first line");
   console.log("url = ",url);
-  const response = await fetch(url);
+  //const response = await fetch(url);
+  const response = await fetch('/api/workout');
+  '/api/workout'
   console.log("between const response and const json. reponse = ",response);
   const json = await response.json();
   console.log("in getAllWorkouts, response = ",response);

@@ -195,7 +195,7 @@ if (!isTest)
                                       // console.log("with (!isTest) connected to daaaata base");
                                       //}                                                                            
                                       app.listen((process.env.PORT || 5173), () => {
-                                      console.log('http://localhost:5173 with (!isTest) connected to daaaata base process.env.PORT ',process.env.PORT)
+                                      console.log('http://localhost:5173 with (!isTest) connected to daaaata base process.env.PORT =  ',process.env.PORT)
                                       }),
                          )
      )                                                                      

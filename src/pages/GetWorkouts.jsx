@@ -14,8 +14,6 @@ const url =  '/api/workout';
 export default function GetWorkouts() 
 {
   
-
-
  // xxx  const [workouts, setWorkouts] = useState(null);
 console.log("in GetWorkouts  pre useWorkoutsContext");
 const {workouts,dispatch} = useWorkoutsContext();  

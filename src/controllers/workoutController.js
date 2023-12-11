@@ -2,20 +2,21 @@
 //import { useNavigate } from "react-router-dom";
 
 
-import WorkoutModelDb from "../models/workoutDbModel.js";
+import  WorkoutModelDb  from "../models/workoutDbModel.js";
 
 
 export const getEnv =  (req,res)=>{  
     /* console.log("inside workoutController.js  getEnv");  */ 
     /*const navigate = useNavigate;                      
     return(navigate("/Error404"))       
-*/    res.json({mssg: "inside Env in workoutController.js"});     
+*/    res.json({mssg: "inside getEnv in workoutController.js 98"});     
+       console.log("inside export getEnv");
                                   }                            
 
 //  GET all entries
 
 export const getAllWorkoutEntries = async  (req,res)=>{   
-    console.log("inside workoutController.js getAllWorkoutEntries ");            
+    console.log("inside workoutController.js getAllWorkoutEntries 99");            
     const workouts = await WorkoutModelDb.find({}).sort({createdAt: -1});  // ie find all, sorted in descending order       
                                     // ....find({reps:20}).... finds all entries where reps=20
                                     

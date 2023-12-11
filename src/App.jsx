@@ -36,6 +36,7 @@ if (!Show) {return null}
         <ul>
           {routes.map(({ name, path }) => {
             /* console.log("in Routes ul name, path =",name, path); */
+            console.log("in App.jsx routes");
             if (name !== "Error404"&&name !== "xxxUpdate")     
              {return(
                 <li key={path} style={{color: "red"}}>
@@ -49,7 +50,7 @@ if (!Show) {return null}
       </nav>
       <Routes>
         {routes.map(({ path, component: RouteComp }) => 
-          {console.log("path =",path);
+          {console.log("app.jsx path =",path);
           console.log("element =",RouteComp );
             return <Route key={path} path={path} element={<RouteComp />}></Route>
           }        )            

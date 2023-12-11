@@ -3,13 +3,16 @@ import mongoose from 'mongoose';
 import fs from 'node:fs';
 import path from 'node:path';
 import cors from 'cors';
+//const Blag = require("./src/models/workoutDbModel");
+
+
 
 import { fileURLToPath } from 'node:url'
 
 //const { MongoClient, ServerApiVersion } = require('mongodb');
-import { MongoClient, ServerApiVersion } from 'mongodb';
+//import { MongoClient, ServerApiVersion } from 'mongodb';
 
-import WorkoutModelDb from "./src/models/workoutDbModel.js";
+import  WorkoutModelDb  from "./src/models/workoutDbModel.js";
 import { router } from "./src/routes/workoutRoutes.js";
 import "dotenv/config";
 
@@ -190,7 +193,7 @@ const uri = "mongodb+srv://userx:6j5pbHRxwLanqaq4@cluster0.t8319.mongodb.net/Pro
 //    below working version  except for deployment //////////////////////////////////
 if (!isTest)
   {
- mongoose.connect(uri, {UseNewUrlParser: true,UseUnifiedTopology:true})
+ mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
 .then(createServer().then(({ app }) =>//{app.listen(5173); //ie localhost:3333/3334   // 5173        
                                       // console.log("with (!isTest) connected to daaaata base");
                                       //}                                                                            

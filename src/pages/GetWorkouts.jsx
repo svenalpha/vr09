@@ -5,8 +5,9 @@ import {UpdateWorkoutForm} from "../components/UpdateWorkoutForm.jsx"
 
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext.jsx";
 
-
-
+//import { MongoClient, ServerApiVersion } from 'mongodb';
+//import { WorkoutModelDb } from "../models/workoutDbModel.js";
+//import   WorkoutModelDb   from "../models/workoutDbModel.js";
 //const url = 'http://localhost:5173/api/workout';      //  const url = 'https://api.github.com/users';  
 const url =  '/api/workout'; 
 //'mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority';
@@ -25,10 +26,21 @@ useEffect(() => { getAllWorkouts(); },[]);
 
 const getAllWorkouts = async () => 
  {console.log("in GetWorkouts/getAllWorkouts first line");
-  console.log("url = ",url);
+
+
+ //WorkoutModelDb.find().sort({createdAt: -1}) /* sort to go from newest to oldest */
+ ////.then((result)=>{res.render("index",{titlex: "All Blogs",blogs: result});})
+ //   .then((result)=>{console.log("result of find = ",result);})
+ //   .catch((error)=>{console.log(error);}); 
+
+     
+
+
+
+  console.log("url after .find = ",url);
   //const response = await fetch(url);
   const response = await fetch('/api/workout');
-  '/api/workout'
+ 
   console.log("between const response and const json. reponse = ",response);
   const json = await response.json();
   console.log("in getAllWorkouts, response = ",response);

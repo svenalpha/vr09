@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 
-
 const Schema = mongoose.Schema;
 
 const workoutSchema= new mongoose.Schema({
@@ -18,11 +17,10 @@ date:{type: Date,
      }                                         
 }, {timestamps: true});
 
-
 /* module.exports = mongoose.model('WorkoutModel', workoutSchema);  */
 
 const WorkoutModelDb= mongoose.model("WorkoutModel",workoutSchema);  
-/* module.exports = WorkoutModelDb;   */
+//module.exports = WorkoutModelDb;   
 export default WorkoutModelDb;
 
 

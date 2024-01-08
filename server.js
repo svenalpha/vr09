@@ -168,12 +168,13 @@ app.get("/getWorkouts", (req, res) => {
 //.then((result)=>{console.log(in server.js, /getUsers, result = ",result);})  //  res.render("index",{titlex: "All Blogs",blogs: result});})
 //WorkoutModelDb.find()
 
-WorkoutModelDb.find().sort({createdAt: -1})
-    .then(workoutmodels => {res.json(workoutmodels); 
-                            console.log("in server.js, find() success workoumodels = ",workoutmodels);
-                           })                                  
-    .catch((error)=>{ res.json(err); console.log("in server.js, find() failed");});                                                                           
-  
+//  WorkoutModel from here
+//WorkoutModelDb.find().sort({createdAt: -1})
+//    .then(workoutmodels => {res.json(workoutmodels); 
+//                            console.log("in server.js, find() success workoumodels = ",workoutmodels);
+//                           })                                  
+//    .catch((error)=>{ res.json(err); console.log("in server.js, find() failed");});                                                                           
+//   end WorkoutModel from here
                                      }           
          )      // end get workouts                                                                      
 

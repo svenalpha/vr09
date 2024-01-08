@@ -156,7 +156,7 @@ app.use(express.json());
 
 
 app.get("/getWorkouts", (req, res) => {
-    //console.log("req.body = ",req.body);
+    console.log("in server.js /getWorkouts    = ");
     //res.send("inside server.js, res.send from /getUsers ");
     //const data =  WorkoutModelDb.find({}).sort({createdAt: -1});  
     //res.send(data);   

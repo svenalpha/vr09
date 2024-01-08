@@ -1,4 +1,7 @@
 import mongoose from 'mongoose';
+mongoose.models = {};
+mongoose.modelSchemas = {};
+
 
 const Schema = mongoose.Schema;
 
@@ -37,8 +40,8 @@ date:{type: Date,
 
 
 //const WorkoutModelDb= mongoose.models['WorkoutModel'] || mongoose.model("WorkoutModel",workoutSchema);  
-const WorkoutModelDb= mongoose.models['WorkoutModel'] || mongoose.model("WorkoutModel",workoutSchema);  
-//const WorkoutModelDb= mongoose.model("WorkoutModel",workoutSchema);  
+//const WorkoutModelDb= mongoose.models['WorkoutModel'] || mongoose.model("WorkoutModel",workoutSchema);  
+const WorkoutModelDb= mongoose.model("WorkoutModel",workoutSchema);  
 //module.exports = WorkoutModelDb;   
 export default WorkoutModelDb;
 //export default mongoose.models["WorkoutModelDb"] ?? mongoose.model("WorkoutModelDb",workoutSchema)

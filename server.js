@@ -152,6 +152,31 @@ var enableCORS=function (req,res,next){
 
   
 // routes would be here, but moved to routes/workoutRoutes
+app.use(express.json());  
+
+
+app.get("/getWorkouts", (req, res) => {
+    //console.log("req.body = ",req.body);
+    //res.send("inside server.js, res.send from /getUsers ");
+    //const data =  WorkoutModelDb.find({}).sort({createdAt: -1});  
+    //res.send(data);   
+    //WorkoutModelDb.find() 
+    // .then(workoutmodels => res.json(workoutmodels))  
+    // .catch(err => res.json("workoutmodels err = ", err))     
+     //console.log("workoutmodels = ", workoutmodels);      
+    // WorkoutModelDb.find().sort({createdAt: -1}) /* sort to go from newest to oldest */
+//.then((result)=>{console.log(in server.js, /getUsers, result = ",result);})  //  res.render("index",{titlex: "All Blogs",blogs: result});})
+//WorkoutModelDb.find()
+
+WorkoutModelDb.find().sort({createdAt: -1})
+    .then(workoutmodels => {res.json(workoutmodels); 
+                            console.log("in server.js, find() success workoumodels = ",workoutmodels);
+                           })                                  
+    .catch((error)=>{ res.json(err); console.log("in server.js, find() failed");});                                                                           
+  
+                                     }           
+         )      // end get workouts                                                                      
+
 
 
   app.use('*', async (req, res) => {
@@ -224,9 +249,9 @@ if (!isTest)
 AA*/
 
 
-let api_key = process.env["MONGO_URI_FROM_ENV"];
-
+/*SS
 ////    below working version  except for deployment //////////////////////////////////
+let api_key = process.env["MONGO_URI_FROM_ENV"];
 if (!isTest)
  {
 mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
@@ -243,6 +268,39 @@ mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
 .catch((err)=>console.log("mongoose connect error: ",err));
  }                                            
 ////  end  below working version  except for deployment //////////////////////////////////
+SS*/
+
+///////////////////////// im ported from vr08_1 /////
+const dbURI='mongodb+srv://userx:6j5pbHRxwLanqaq4@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority'; 
+if (!isTest) {
+  createServer().then(({ app }) =>
+    app.listen((process.env.PORT || 5173), () => 
+    {console.log('http://localhost:5173');
+//////////////////////////////////////////////////////////
+mongoose.connect(dbURI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => {
+  console.log('Connected to MongoDB ccccccccccvvvvvvvvvvv');
+  //  mdb=mongoose.Connection; 
+})
+.catch((error) => {
+  console.error('Error connecting to MongoDB  bbbbnnnnnmmm', error)
+})
+
+
+    }         ),            
+                     )
+}   ///  end    if (!isTest)
+/////////////////////////  end  imported from vr08_1 /////
+
+
+
+
+
+
+
 
 
 

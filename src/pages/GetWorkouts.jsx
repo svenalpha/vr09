@@ -37,7 +37,7 @@ const getAllWorkouts = async () =>
 
  
 
-
+/*DD
   console.log("url after .find = ",url);
   //const response = await fetch(url);
   const response = await fetch('/api/workout');
@@ -51,14 +51,16 @@ const getAllWorkouts = async () =>
     console.log("in GetWorkouts, before dispatch is invoked. json =",json);
      dispatch({type: "SET_WORKOUTS", payload: json});
       console.log("in getAllWorkouts, workouts = ",workouts);     
-   }       
+   }  
+DD*/
  };  // end const getAllWorkouts = async () =>           
+
 
 return(<>     
 
  <h1>GetWorkouts</h1>
  console.log("pre GetEntries");
-<GetEntries />
+
 console.log("post GetEntries");
 
 

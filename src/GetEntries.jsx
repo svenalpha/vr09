@@ -1,28 +1,30 @@
 
+
 import React, { useState, useEffect } from 'react';
 import "./app.css";
 
 const url = 'https://api.github.com/users';  
 //const response = await fetch("https://api.github.com/users");
-
+//  import { WorkoutModelDb } from "./models/workoutDbModel.js";
 // second argument
 
-const UseEffectFetchData = () => {
+const GetEntries = () => {  
   const [users, setUsers] = useState([]);
-
-  const getUsers = async () => {
-    const response = await fetch(url);
-    const users = await response.json();
-    setUsers(users);
+  console.log("inside GetEntries xxx");
+  const getUsers = async () => 
+   {const response = await fetch(url);
+   const users = await response.json();
+   setUsers(users);
+   console.log("inside GetEntries");
+   //WorkoutModelDb.find().sort({createdAt: -1}) /* sort to go from newest to oldest */
     //console.log(users);
-
-  };
+   }
 
   useEffect(() => {getUsers();},[]);
-  
+  /*
   return (
     <>
-      <h3>github users</h3>
+     <h3>github users</h3>    
       <ul className='users'>
         {users.map((user) => {
           const { id, login, avatar_url, html_url } = user;
@@ -38,8 +40,10 @@ const UseEffectFetchData = () => {
         })}
       </ul>
     </>
-  );
+  ); */
 };
-export default UseEffectFetchData;
+export default GetEntries;
+
+
 
 

@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+//import { WorkoutModelDb }  from "./models/workoutDbModel.js";
 import fs from 'node:fs';
 import path from 'node:path';
 import cors from 'cors';
@@ -13,6 +14,10 @@ import { fileURLToPath } from 'node:url'
 //import { MongoClient, ServerApiVersion } from 'mongodb';
 
 import  WorkoutModelDb  from "./src/models/workoutDbModel.js";
+
+
+
+
 import { router } from "./src/routes/workoutRoutes.js";
 import "dotenv/config";
 
@@ -61,8 +66,7 @@ app.use(cors());
 //app.options('*',cors());             
 
   // middleware
-app.use((req,res,next)=>{console.log("req.path =",req.path);   
-                         console.log("req.method =",req.method);
+app.use((req,res,next)=>{console.log("dummy middleware req.path =",req.path);   
                          next();   
                         }                      
        );                               
@@ -73,6 +77,9 @@ app.use((req,res,next)=>{//console.log("in server.js, testing middleware  req.pa
  }                                       
 );  
 app.use("/api/workout",router);  /* app.use("/src/routes/workout", router);??? */
+
+//app.listen(process.env.PORT || 5173);
+ 
 
 /*BB
 var enableCORS=function (req,res,next){
@@ -90,12 +97,18 @@ var enableCORS=function (req,res,next){
 
 //login string passed to .env   
 //const dbURI='mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority';                                                                                                                       
-//let api_key = process.env["MONGO_URI_FROM_ENV"];
-//mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})                                                                                                                                       
-// .then((result)=>{app.listen(process.env.PORT || 3334); //  3333/3334 ie localhost:3333   // 5731 ???
-//                  console.log("connected to daaaata base");
-//                 })
-// .catch((err)=>console.log(err));
+
+
+////mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})                                                                                                                                       
+//// .then((result)=>{app.listen(process.env.PORT || 3334); //  3333/3334 ie localhost:3333   // 5731 ???
+////                  console.log("connected to daaaata base");
+////                 })
+//// .catch((err)=>console.log(err));
+
+
+
+
+
 
 
 
@@ -179,32 +192,57 @@ var enableCORS=function (req,res,next){
 }
 
 
-
-
-//  app.listen(process.env.PORT || 3333); alternative below as part of logging in to mongoose
-//  in password:654321@a ; may need to escape @ with %40  
-// login string passed to .env   const dbURI='mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority';                                                                                                                       
+/*AA
 let api_key = process.env['MONGO_URI_FROM_ENV'];
- //api_key = "asdfghjkl";
+//api_key = "asdfghjkl";
 //const uri = "mongodb+srv://userx:6j5pbHRxwLanqaq4@cluster0.t8319.mongodb.net/?retryWrites=true&w=majority";
 const uri = "mongodb+srv://userx:6j5pbHRxwLanqaq4@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority";
 //  works    mongodb+srv://userx:6j5pbHRxwLanqaq4@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority
 
+
 //    below working version  except for deployment //////////////////////////////////
+//  app.listen(process.env.PORT || 3333); alternative below as part of logging in to mongoose
+//  in password:654321@a ; may need to escape @ with %40  
+// login string passed to .env   const dbURI='mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority';                                                                                                                       
+
+//const DoConnect = async ({app}) => 
 if (!isTest)
-  {
- mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
-.then(createServer().then(({ app }) =>//{app.listen(5173); //ie localhost:3333/3334   // 5173        
-                                      // console.log("with (!isTest) connected to daaaata base");
-                                      //}                                                                            
-                                      app.listen((process.env.PORT || 5173), () => {
-                                      console.log('http://localhost:5173 with (!isTest) connected to daaaata base process.env.PORT =  ',process.env.PORT)
-                                      }),
-                         )
-     )                                                                      
- .catch((err)=>console.log("mongoose connect error: ",err));
-  }
-///  end  below working version  except for deployment //////////////////////////////////
+ {try
+   {await mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
+   .then(createServer()
+   .then(({app}) =>{app.listen(5173); //ie localhost:3333/3334   // 5173        
+    // 
+           console.log('http://localhost:5173 with (!isTest) connected to daaaata base process.env.PORT =  ',process.env.PORT)
+                    }         
+                                                                                                   
+        )           
+        )                                             
+   } catch(error) {console.error("connnnnnnnect error",error);}
+ }                                            
+
+//if (!isTest) {DoConnect(app);}
+AA*/
+
+
+let api_key = process.env["MONGO_URI_FROM_ENV"];
+
+////    below working version  except for deployment //////////////////////////////////
+if (!isTest)
+ {
+mongoose.connect(api_key, {UseNewUrlParser: true,UseUnifiedTopology:true})
+.then(createServer()
+.then(({ app }) =>//{app.listen(5173); //ie localhost:3333/3334   // 5173        
+                                     // console.log("with (!isTest) connected to daaaata base");
+                                     //}
+//.then(                                                                                                                 
+                                     app.listen((process.env.PORT || 5173), () => {
+                                     console.log('http://localhost:5173 with (!isTest) connected to daaaata base process.env.PORT =  ',process.env.PORT)
+                                     }),
+                        )
+    )                                                                      
+.catch((err)=>console.log("mongoose connect error: ",err));
+ }                                            
+////  end  below working version  except for deployment //////////////////////////////////
 
 
 

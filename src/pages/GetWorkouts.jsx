@@ -5,16 +5,20 @@ import {UpdateWorkoutForm} from "../components/UpdateWorkoutForm.jsx"
 
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext.jsx";
 
+// import { WorkoutModelDb }  from "../models/workoutDbModel.js";
+
+import GetEntries from "../GetEntries";
+
+
+
 //import { MongoClient, ServerApiVersion } from 'mongodb';
 //import { WorkoutModelDb } from "../models/workoutDbModel.js";
-//import   WorkoutModelDb   from "../models/workoutDbModel.js";
 //const url = 'http://localhost:5173/api/workout';      //  const url = 'https://api.github.com/users';  
 const url =  '/api/workout'; 
 //'mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority';
 
 export default function GetWorkouts() 
 {
-  
  // xxx  const [workouts, setWorkouts] = useState(null);
 console.log("in GetWorkouts  pre useWorkoutsContext");
 const {workouts,dispatch} = useWorkoutsContext();  
@@ -22,19 +26,16 @@ console.log("in GetWorkouts  workouts = ",workouts);
 console.log("in GetWorkouts  post useWorkoutsContext");
 useEffect(() => { getAllWorkouts(); },[]);
 
-
-
 const getAllWorkouts = async () => 
  {console.log("in GetWorkouts/getAllWorkouts first line");
 
 
- //WorkoutModelDb.find().sort({createdAt: -1}) /* sort to go from newest to oldest */
- ////.then((result)=>{res.render("index",{titlex: "All Blogs",blogs: result});})
- //   .then((result)=>{console.log("result of find = ",result);})
- //   .catch((error)=>{console.log(error);}); 
+//WorkoutModelDb.find().sort({createdAt: -1}) /* sort to go from newest to oldest */
+////.then((result)=>{res.render("index",{titlex: "All Blogs",blogs: result});})
+//    .then((result)=>{console.log("result of find = ",result);})
+//    .catch((error)=>{console.log(error);}); 
 
-     
-
+ 
 
 
   console.log("url after .find = ",url);
@@ -56,6 +57,11 @@ const getAllWorkouts = async () =>
 return(<>     
 
  <h1>GetWorkouts</h1>
+ console.log("pre GetEntries");
+<GetEntries />
+console.log("post GetEntries");
+
+
  <h4>iiiiiiiinside GetWorkouts</h4>
 
  {/* display not using  dedicated component file  */}       

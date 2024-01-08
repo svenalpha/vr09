@@ -49,15 +49,16 @@ console.log("in GetEntries,  pre fetch/axios ");
  await axios({method: 'GET',
               url: "http://localhost:5173/getWorkouts", 
               //url: "https://jasnplaceholder.typicode.com/todos", 
-              params: { _limit: 2 } 
+              withCredentials: false,
+              params: { _limit: 2 }, 
            //data: JSON.stringify(fetchOptions.data),
            //responseType: 'arraybuffer',
            //responseEncoding: 'binary',
-           //headers: {//'Content-Type': 'application/vnd.api+json',
-           //          // 'Content-Type': 'text/plain;charset=ISO-8859-15',
-           //          'Content-Type': 'application/vnd.api+json;text/plain;charset=ISO-8859-15',
-           //           Accept: 'application/vnd.api+json',
-           //         },
+           headers: {//'Content-Type': 'application/vnd.api+json',
+                     // 'Content-Type': 'text/plain;charset=ISO-8859-15',
+                     'Content-Type': 'application/vnd.api+json;text/plain;charset=ISO-8859-15',
+                      Accept: 'application/vnd.api+json',
+                    }
             //config: {params: {_limit: 2 }},        
                      
                   })              

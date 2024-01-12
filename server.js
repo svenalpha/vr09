@@ -44,6 +44,26 @@ const isTest = process.env.VITEST
 
 process.env.MY_CUSTOM_SECRET = 'API_KEY_qwertyuiop'
 
+const app = express();   
+app.use(express.json());
+
+app.use(cors({
+  origin: "http://localhost:5173/getWorkouts",
+  headers: ["Content-Type"],
+  credentials: true,
+}));
+
+//app.use(cors());
+//app.use(cors());
+//app.use(cors({origin:"https://vr09.onrender.com",
+//              headers: ["Content-Type"],       
+//              credentials: true,
+//             }));
+//app.options('*',cors());
+
+
+
+
 export async function createServer(
   root = process.cwd(),
   isProd = process.env.NODE_ENV === 'production',
@@ -55,15 +75,9 @@ export async function createServer(
     ? fs.readFileSync(resolve('dist/client/index.html'), 'utf-8')
     : ''
 
-const app = express();   
 
-//app.use(cors());
-//app.use(cors());
-app.use(cors({origin:"https://vr09.onrender.com",
-              headers: ["Content-Type"],       
-              credentials: true,
-             }));
-//app.options('*',cors());             
+
+             
 
   // middleware
 app.use((req,res,next)=>{console.log("dummy middleware req.path =",req.path);   

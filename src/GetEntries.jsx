@@ -43,6 +43,30 @@ function GetEntries() {
   var v22;
   var v7;
 
+
+
+async function doEntriesy(credentials) {
+  return await fetch('http://localhost:5173/getWorkouts', 
+  {   method: 'GET',
+      headers: {
+          'Content-Type': 'application/json',
+       //   'Access-Control-Allow-Origin': 'true' // incorrect
+      },
+      body: JSON.stringify(credentials)
+  })
+      .then(data => data.json() )  // setItems(data);      
+                        
+      .then((data) => setItems(data)) //console.log(" data in doEntriesx = ",data) )                         
+           
+}
+
+
+
+
+
+
+
+
   const doEntriesx =  async () => 
   {console.log("in GetEntriesx,  pre fetch     ");
 
@@ -94,7 +118,7 @@ console.log("in GetEntries,  pre fetch/axios ");
   }  // end  doEntries
 
 
-  useEffect(() =>{ doEntriesx();//doEntries();
+  useEffect(() =>{ doEntriesy(); //doEntriesx();//doEntries();
 
 //////////////////////////////////////////////////////////////////
 ////

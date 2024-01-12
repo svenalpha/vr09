@@ -43,6 +43,20 @@ function GetEntries() {
   var v22;
   var v7;
 
+  const doEntriesx =  async () => 
+  {console.log("in GetEntriesx,  pre fetch     ");
+
+   await fetch('http://localhost:5173/getWorkouts')
+         .then((response) => response.json())
+         .then((data) => {setItems(data);
+                         }
+              )  
+          .then(function (response){         
+           console.log(" message message");           
+                                   }            
+               )                           
+  }    //  end doEntriesx
+
   const doEntries =  async () => 
   {/////////   (in useEffect to async doEntries)   working  /////////////////////////////
 console.log("in GetEntries,  pre fetch/axios ");
@@ -80,7 +94,7 @@ console.log("in GetEntries,  pre fetch/axios ");
   }  // end  doEntries
 
 
-  useEffect(() =>{ doEntries();
+  useEffect(() =>{ doEntriesx();//doEntries();
 
 //////////////////////////////////////////////////////////////////
 ////

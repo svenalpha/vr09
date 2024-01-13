@@ -52,6 +52,7 @@ app.use(cors({
   headers: ["Content-Type"],
   credentials: true,
 }));
+app.options('*',cors());
 
 //app.use(cors());
 //app.use(cors());

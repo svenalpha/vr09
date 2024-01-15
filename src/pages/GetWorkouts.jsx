@@ -15,6 +15,7 @@ import GetEntries from "../GetEntries";
 //import { WorkoutModelDb } from "../models/workoutDbModel.js";
 //const url = 'http://localhost:5173/api/workout';      //  const url = 'https://api.github.com/users';  
 const url =  '/api/workout'; 
+const urlx = 'http://localhost:5173/api/workoutsx/';
 //'mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority';
 
 export default function GetWorkouts() 
@@ -37,10 +38,10 @@ const getAllWorkouts = async () =>
 
  
 
-/*DD
+/*DD*/
   console.log("url after .find = ",url);
   //const response = await fetch(url);
-  const response = await fetch('/api/workout');
+  const response = await fetch(urlx);
  
   console.log("between const response and const json. reponse = ",response);
   const json = await response.json();
@@ -52,7 +53,7 @@ const getAllWorkouts = async () =>
      dispatch({type: "SET_WORKOUTS", payload: json});
       console.log("in getAllWorkouts, workouts = ",workouts);     
    }  
-DD*/
+/*DD*/
  };  // end const getAllWorkouts = async () =>           
 
 

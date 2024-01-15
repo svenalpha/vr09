@@ -26,6 +26,7 @@ import  WorkoutModelDb     from "./models/workoutDbModel.js";
 import "./app.css";
 
 const url = 'https://api.github.com/users';  
+const urlx = 'https://localhost:5173/api/workoutsx';
 //const response = await fetch("https://api.github.com/users");
 
 // second argument
@@ -46,7 +47,7 @@ function GetEntries() {
 
 
 async function doEntriesy(credentials) {
-  return await fetch('http://localhost:5173/getWorkouts', 
+  return await fetch(urlx, 
   {   method: 'GET',
       headers: {
           'Content-Type': 'application/json',

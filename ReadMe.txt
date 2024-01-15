@@ -16,8 +16,8 @@ files saved at:  https://github.com/iamshaunjp/MERN-Stack-Tutorial
 
 do: npm run dev   //  for development version     
 do: npm run build  // for production version (ie creates dist directory)
-difficulty with preview of build version, at command prompt, so do:
-NODE_ENV=production node server  // which seemed to work correctly 
+difficulty with prev    NODE_ENV=production node server     iew of build version, at command prompt, so do:
+  // which seemed to work correctly 
 
 
 

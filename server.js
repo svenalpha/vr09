@@ -19,6 +19,7 @@ import  WorkoutModelDb  from "./src/models/workoutDbModel.js";
 
 
 import { router } from "./src/routes/workoutRoutes.js";
+import routerx from "./src/routes/workoutRoutesx.js";
 import "dotenv/config";
 
 
@@ -63,6 +64,21 @@ app.options('*',cors());
 //app.options('*',cors());
 
 
+  // middleware
+  app.use((req,res,next)=>{console.log("dummy middleware req.path =",req.path);   
+  next();   
+                          }                      
+         );                               
+app.use(express.json());
+app.use((req,res,next)=>{//console.log("in server.js, testing middleware  req.path =",req.path);   
+//console.log("req.method =",req.method);
+next();   
+}                                       
+);  
+app.use("/api/workout",router);  /* app.use("/src/routes/workout", router);??? */
+app.use('/api/workoutsx',routerx);
+//app.listen(process.env.PORT || 5173);
+
 
 
 export async function createServer(
@@ -80,21 +96,6 @@ export async function createServer(
 
              
 
-  // middleware
-app.use((req,res,next)=>{console.log("dummy middleware req.path =",req.path);   
-                         next();   
-                        }                      
-       );                               
-app.use(express.json());
-app.use((req,res,next)=>{//console.log("in server.js, testing middleware  req.path =",req.path);   
-  //console.log("req.method =",req.method);
-  next();   
- }                                       
-);  
-app.use("/api/workout",router);  /* app.use("/src/routes/workout", router);??? */
-
-//app.listen(process.env.PORT || 5173);
- 
 
 /*BB
 var enableCORS=function (req,res,next){
@@ -288,14 +289,14 @@ SS*/
 
 ///////////////////////// im ported from vr08_1 /////
 const dbURI='mongodb+srv://userx:6j5pbHRxwLanqaq4@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority'; 
-if (!isTest) {
+if (!isTest) {              
   createServer().then(({ app }) =>
-    app.listen((process.env.PORT || 5173), () => 
+    app.listen((process.env.PORT || 5173), () =>        
     {console.log('http://localhost:5173');
 //////////////////////////////////////////////////////////
 mongoose.connect(dbURI, {
   useNewUrlParser: true,
-  useUnifiedTopology: true,
+  useUnifiedTopology: true,           
 })
 .then(() => {
   console.log('Connected to MongoDB ccccccccccvvvvvvvvvvv');

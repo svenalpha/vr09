@@ -49,7 +49,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-  origin: "http://localhost:5173/getWorkouts",
+  origin: "http://localhost:5173/api/workoutsx/",
   headers: ["Content-Type"],
   credentials: true,
 }));

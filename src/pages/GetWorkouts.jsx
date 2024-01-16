@@ -39,7 +39,7 @@ const getAllWorkouts = async () =>
  
 
 /*DD*/
-  console.log("url after .find = ",url);
+  console.log("urlx after .find = ",urlx);
   //const response = await fetch(url);
   const response = await fetch(urlx);
  

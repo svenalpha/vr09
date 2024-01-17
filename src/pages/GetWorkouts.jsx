@@ -15,7 +15,8 @@ import GetEntries from "../GetEntries";
 //import { WorkoutModelDb } from "../models/workoutDbModel.js";
 //const url = 'http://localhost:5173/api/workout';      //  const url = 'https://api.github.com/users';  
 const url =  '/api/workout'; 
-const urlx = 'http://localhost:5173/api/workoutsx/';
+//const urlx = 'http://localhost:5173/api/workoutsx/';
+const urlx = 'http://localhost:5173/api/workoutsx/testx';
 //'mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority';
 
 export default function GetWorkouts() 

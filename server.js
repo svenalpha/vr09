@@ -57,10 +57,7 @@ app.use(express.json());
 
 //app.use(cors());
 //app.use(cors());
-app.use(cors({origin:"*",  //"http://Localhost:5173",  // "https://vr09.onrender.com",
-              //headers: ["Content-Type"],       
-              //credentials: true,
-             }));
+
 //app.options('*',cors());
 
 
@@ -122,7 +119,10 @@ var enableCORS=function (req,res,next){
 //// .catch((err)=>console.log(err));
 
 
-
+app.use(cors({origin:"*",  //"http://Localhost:5173",  // "https://vr09.onrender.com",
+              //headers: ["Content-Type"],       
+              //credentials: true,
+             }));
 
 
 

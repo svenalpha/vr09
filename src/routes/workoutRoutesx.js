@@ -6,9 +6,14 @@ export const routerx = express.Router();
 import {getEnv,getAllWorkoutEntries,
     //updateWorkoutEntry,
     createWorkoutEntry} from "../controllers/workoutController.js";
+import cors from 'cors';
+app.use(cors({origin:"http://Localhost:5173/api/workoutsx/testx",  // "https://vr09.onrender.com",
+              //headers: ["Content-Type"],       
+              //credentials: true,
+             }));
 
 
-    
+
 routerx.get('/testx',(req,res) => {
     console.log("in workoutRoutesx routerx.get ");
     res.json({mssg:'  mmmmmmssg of routerx.get  '});

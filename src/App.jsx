@@ -16,10 +16,7 @@ const pages = import.meta.glob('./pages/*.jsx', { eager: true })
 console.log("in app.jsx, import.meta.glob = ", import.meta.glob);
 console.log("in app.jsx, pages = ", pages);
 
-app.use(cors({origin:"*",  //"http://Localhost:5173",  // "https://vr09.onrender.com",
-              //headers: ["Content-Type"],       
-              //credentials: true,
-             }));
+
 
 
 
@@ -29,10 +26,7 @@ const rx = Object.keys(pages).map((path) => {
   console.log("App.jsx, Object.keys(pages).map((path), name = ",name);      
   console.log("App.jsx, Object.keys(pages).map((path), path = ",path);     
   
-  app.use(cors({origin:"*",  //"http://Localhost:5173",  // "https://vr09.onrender.com",
-              //headers: ["Content-Type"],       
-              //credentials: true,
-             }));
+
   return {name,                                                              
           path: name === 'Home' ? '/' : `/${name.toLowerCase()}`,         
           component: pages[path].default,                                

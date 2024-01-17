@@ -57,7 +57,7 @@ app.use(express.json());
 
 //app.use(cors());
 //app.use(cors());
-app.use(cors({origin:"http://Localhost:5173/api/workoutsx/testx",  // "https://vr09.onrender.com",
+app.use(cors({origin:"http://Localhost:5173",  // "https://vr09.onrender.com",
               //headers: ["Content-Type"],       
               //credentials: true,
              }));

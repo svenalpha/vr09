@@ -1,6 +1,6 @@
 import { Link, Route, Routes } from 'react-router-dom';
 import {useEffect, useState} from "react";   
-
+import cors from 'cors';
 
 
 
@@ -16,11 +16,23 @@ const pages = import.meta.glob('./pages/*.jsx', { eager: true })
 console.log("in app.jsx, import.meta.glob = ", import.meta.glob);
 console.log("in app.jsx, pages = ", pages);
 
+app.use(cors({origin:"*",  //"http://Localhost:5173",  // "https://vr09.onrender.com",
+              //headers: ["Content-Type"],       
+              //credentials: true,
+             }));
+
+
+
 // original working routes
 const rx = Object.keys(pages).map((path) => {                              
   const name = path.match(/\.\/pages\/(.*)\.jsx$/)[1]                      
   console.log("App.jsx, Object.keys(pages).map((path), name = ",name);      
-  console.log("App.jsx, Object.keys(pages).map((path), path = ",path);      
+  console.log("App.jsx, Object.keys(pages).map((path), path = ",path);     
+  
+  app.use(cors({origin:"*",  //"http://Localhost:5173",  // "https://vr09.onrender.com",
+              //headers: ["Content-Type"],       
+              //credentials: true,
+             }));
   return {name,                                                              
           path: name === 'Home' ? '/' : `/${name.toLowerCase()}`,         
           component: pages[path].default,                                
@@ -61,6 +73,12 @@ export function App()
 {
 // hydrate error solution. see ReadMe.txt  vr08  ////////
 const [Show, setShow] = useState(false);
+
+app.use(cors({origin:"*",  //"http://Localhost:5173",  // "https://vr09.onrender.com",
+              //headers: ["Content-Type"],       
+              //credentials: true,
+             }));
+
 useEffect(()=>{setShow(true)},[]);
 if (!Show) {return null} 
 /////   end  hydrate error solution. see ReadMe.txt  vr08  ////////                            
@@ -84,6 +102,8 @@ if (!Show) {return null}
           }
         </ul>
       </nav>
+
+
       <Routes>
         {routes.map(({ path, component: RouteComp }) => 
           {console.log("app.jsx Routes path =",path);     

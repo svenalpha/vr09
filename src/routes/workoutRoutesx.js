@@ -7,7 +7,7 @@ import {getEnv,getAllWorkoutEntries,
     //updateWorkoutEntry,
     createWorkoutEntry} from "../controllers/workoutController.js";
 import cors from 'cors';
-app.use(cors({origin:"http://Localhost:5173",  // "https://vr09.onrender.com",
+app.use(cors({origin: "*",   //"http://Localhost:5173",  // "https://vr09.onrender.com",
               //headers: ["Content-Type"],       
               //credentials: true,
              }));

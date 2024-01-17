@@ -55,12 +55,12 @@ app.use(express.json());
 //}));
 //app.options('*',cors());
 
-app.use(cors());
 //app.use(cors());
-//app.use(cors({origin:"https://vr09.onrender.com",
-//              headers: ["Content-Type"],       
-//              credentials: true,
-//             }));
+//app.use(cors());
+app.use(cors({origin:"http://Localhost:5173/api/workoutsx/testx",  // "https://vr09.onrender.com",
+              //headers: ["Content-Type"],       
+              //credentials: true,
+             }));
 //app.options('*',cors());
 
 

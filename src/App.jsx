@@ -74,10 +74,7 @@ export function App()
 // hydrate error solution. see ReadMe.txt  vr08  ////////
 const [Show, setShow] = useState(false);
 
-app.use(cors({origin:"*",  //"http://Localhost:5173",  // "https://vr09.onrender.com",
-              //headers: ["Content-Type"],       
-              //credentials: true,
-             }));
+
 
 useEffect(()=>{setShow(true)},[]);
 if (!Show) {return null} 

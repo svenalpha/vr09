@@ -16,7 +16,8 @@ import GetEntries from "../GetEntries";
 //const url = 'http://localhost:5173/api/workout';      //  const url = 'https://api.github.com/users';  
 const url =  '/api/workout'; 
 //const urlx = 'http://localhost:5173/api/workoutsx/';
-const urlx = 'http://localhost:5173/api/workoutsx/testx';
+//  const urlx = 'http://localhost:5173/api/workoutsx/testx';
+const urlx = 'http://localhost:5173/testy';
 //'mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority';
 
 export default function GetWorkouts() 
@@ -24,7 +25,7 @@ export default function GetWorkouts()
  // xxx  const [workouts, setWorkouts] = useState(null);
 console.log("in GetWorkouts  pre useWorkoutsContext");
 const {workouts,dispatch} = useWorkoutsContext();  
-console.log("in GetWorkouts  workouts = ",workouts);
+console.log("in GetWorkouts getAllWorkouts workouts = ",workouts);
 console.log("in GetWorkouts  post useWorkoutsContext");
 useEffect(() => { getAllWorkouts(); },[]);
 
@@ -44,10 +45,10 @@ const getAllWorkouts = async () =>
   //const response = await fetch(url);
   const response = await fetch(urlx);
  
-  console.log("between const response and const json. reponse = ",response);
+  console.log("in GetWorkouts between const response and const json. reponse = ",response);
   const json = await response.json();
-  console.log("in getAllWorkouts, response = ",response);
-  console.log("in getAllWorkouts, json = ",json);
+  console.log("in getWorkouts, response = ",response);
+  console.log("in getWorkouts, json = ",json);
   if  (response.ok)
    {//x setWorkouts(json);
     console.log("in GetWorkouts, before dispatch is invoked. json =",json);

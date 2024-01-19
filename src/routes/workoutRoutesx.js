@@ -12,7 +12,7 @@ import cors from 'cors';
 
 
 routerx.get('/testx',(req,res) => {
-    console.log("in workoutRoutesx routerx.get ");
+    console.log("in workoutRoutesx routerx.testx ");
     res.json({mssg:'  mmmmmmssg of routerx.get  '});
 });
 

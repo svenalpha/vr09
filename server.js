@@ -195,6 +195,12 @@ WorkoutModelDb.find().sort({createdAt: -1})
          )      // end get workouts                                                                      
 
 
+app.get('/testy',(req,res) =>{
+  res.json({mssg:'  mssg of /testy ggggggg  '});
+
+});
+
+
 
   app.use('*', async (req, res) => {
     try {

@@ -71,7 +71,7 @@ async function doEntriesy(credentials) {
   const doEntriesx =  async () => 
   {console.log("in GetEntriesx,  pre fetch     ");
   //await fetch('http://localhost:5173/getWorkouts')
-   await fetch('/getWorkouts')
+   await fetch('/api/getWorkouts')
          .then((response) => response.json())
          .then((data) => {setItems(data);
                          }
@@ -86,7 +86,8 @@ async function doEntriesy(credentials) {
   {/////////   (in useEffect to async doEntries)   working  /////////////////////////////
 console.log("in GetEntries,  pre fetch/axios ");
  await axios({method: 'GET',
-              url: "http://localhost:5173/getWorkouts", 
+              url: "/api/getWorkouts", 
+              //url: "http://localhost:5173/getWorkouts", 
               //url: "https://jasnplaceholder.typicode.com/todos", 
               withCredentials: false,
               params: { _limit: 2 }, 

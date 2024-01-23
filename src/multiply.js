@@ -1,7 +1,7 @@
 import { add } from './add'
 
 //const urlx = 'http://localhost:5173/testy';
-const urlx = '/testy';
+const urlx = '/api/testy';
 export function multiply(a, b) {
   return a * b
 }

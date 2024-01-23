@@ -70,8 +70,8 @@ async function doEntriesy(credentials) {
 
   const doEntriesx =  async () => 
   {console.log("in GetEntriesx,  pre fetch     ");
-
-   await fetch('http://localhost:5173/getWorkouts')
+  //await fetch('http://localhost:5173/getWorkouts')
+   await fetch('/getWorkouts')
          .then((response) => response.json())
          .then((data) => {setItems(data);
                          }

@@ -17,7 +17,7 @@ import GetEntries from "../GetEntries";
 const url =  '/api/workout'; 
 //const urlx = 'http://localhost:5173/api/workoutsx/';
 //  const urlx = 'http://localhost:5173/api/workoutsx/testx';
-const urlx = 'http://localhost:5173/testy';
+const urlx = '/testy';
 //'mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority';
 
 export default function GetWorkouts() 

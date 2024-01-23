@@ -134,10 +134,18 @@ require('dotenv').config();  // as used in connect_mongo_render
 
 
 
+import cors from 'cors';
+app.use(cors());
 
+//app.use(cors({
+//  origin: "http://localhost:5173/api/workoutsx/",
+//  headers: ["Content-Type"],
+//  credentials: true,
+//}));
+//app.options('*',cors());
 
-
-
+//app.use(cors());
+//app.use(cors());
 
 
 

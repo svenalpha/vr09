@@ -4,7 +4,7 @@ import { multiplyAndAdd } from '../multiply'
 export default function Home() {
   return (
     <>
-      <h1>Home    No72 15:50     20/01/2024  with hydrate solution</h1>
+      <h1>Home    No73 15:29     23/01/2024  with hydrate solution</h1>
       <div>{addAndMultiply(1, 2, 3)}</div>
       <div>{multiplyAndAdd(1, 2, 3)}</div>
     </>

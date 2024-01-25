@@ -62,16 +62,16 @@ app.use(express.json());
 
 
   // middleware
-  app.use((req,res,next)=>{console.log("dummy middleware req.path =",req.path);   
-  next();   
-                          }                      
-         );                               
+ // app.use((req,res,next)=>{console.log("dummy middleware req.path =",req.path);   
+ // next();   
+ //                         }                      
+ //        );                               
 app.use(express.json());
-app.use((req,res,next)=>{//console.log("in server.js, testing middleware  req.path =",req.path);   
-//console.log("req.method =",req.method);
-next();   
-}                                       
-);  
+//app.use((req,res,next)=>{//console.log("in server.js, testing middleware  req.path =",req.path);   
+////console.log("req.method =",req.method);
+//next();   
+//}                                       
+//);  
 app.use("/api/workout",router);  /* app.use("/src/routes/workout", router);??? */
 app.use('/api/workoutsx',routerx);
 //app.listen(process.env.PORT || 5173);
@@ -125,7 +125,10 @@ app.use(cors({origin:"*",  //"http://Localhost:5173",  // "https://vr09.onrender
              }));
 
 
-
+ //app.use((req,res,next)=>{console.log("dummy middleware req.path =",req.path);   
+ //next();   
+ //                        }                      
+ //       );      
 
 
 

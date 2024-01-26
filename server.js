@@ -198,12 +198,27 @@ WorkoutModelDb.find().sort({createdAt: -1})
          )      // end get workouts                                                                      
 
 
+
+app.get("/userz",(req,res) => 
+ {res.send([{
+   id: 1,
+   name: "John Doe",      
+   age: 43 
+            },
+            {
+  id: 2,
+  name: "Jane Dough",      
+  age: 26               
+            }])    
+                         
+ }                             
+       );   
+       
+
 app.get('/testy',(req,res) =>{
-  res.json({mssg:'  mssg of /testy ggggggg  '});
-
-});
-
-
+  res.send({mssg:'  mssg of /testy ggggggg  '});  // res.send, not res.json ?
+                             });
+      
 
   app.use('*', async (req, res) => {
     try {

@@ -11,7 +11,7 @@ import axios from "axios";
 export default function About() {
   const [userz,setUserz]=useState([]);
 useEffect(() =>{ 
-  axios.get("http://localhost:5173/userz")
+  axios.get("/apix/userz")
   .then(res =>{setUserz(res.data)
               }
        )

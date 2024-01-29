@@ -63,6 +63,13 @@ routes.splice(index2, 1); routes.push(Error404);
 //   end original working routes
 
 
+routes.push({ "name": "route3",             
+              "path": "/userz",  
+              "component": "/userz",     
+          });                              
+
+
+
 export function App() 
 {
 // hydrate error solution. see ReadMe.txt  vr08  ////////

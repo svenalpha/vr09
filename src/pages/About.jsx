@@ -8,20 +8,57 @@ import GetEntries from "../GetEntries";
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 
+
+const doEntriesx =  async () => 
+{console.log("in GetEntriesx,  pre fetch     ");
+//await fetch('http://localhost:5173/getWorkouts')
+ await fetch('/api/getWorkouts')
+       .then((response) => response.json())
+       .then((data) => {setItems(data);
+                       }
+            )  
+        .then(function (response){         
+         console.log(" message message");           
+                                 }            
+             )                           
+}    //  end doEntriesx
+
+
+
+
+
 export default function About() {
   const [userz,setUserz]=useState([]);
-useEffect(() =>{ 
+
+
+
+
+  const doLoad =  async () => 
+  {console.log("in About.jsx,  preeeee axios     ");
+  //await fetch('http://localhost:5173/getWorkouts')
+   await axios.get('/userz')
+         .then((res) => {setUserz(res.data)})
+         .catch(err => {console.log("in About.jsx, error message following axios.get userz",err)});  
+  }    //  end doEntriesx
+
+
+
+  
+useEffect(() =>{
+  doLoad(); 
   //axios.get("/apix/userz")   
-  axios.get("/userz")
-  .then(res =>{setUserz(res.data)
-              }
-       )
-  .catch(err =>{console.log(" catch err = ",err)
-               }
-        )     
+ // axios.get("/userz")
+ // .then(res =>{setUserz(res.data)
+ //             }
+ //      )
+ // .catch(err =>{console.log(" catch err = ",err)
+ //              }
+ //       )     
 
                },[] 
          );
+
+
 
 
   return (

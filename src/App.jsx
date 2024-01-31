@@ -112,7 +112,7 @@ if (!Show) {return null}
         {routes.map(({ path, component: RouteComp }) => 
           {console.log("app.jsx Routes path =",path);     
            console.log("App.js Routes RouteComp  =",RouteComp );
-           if (path != "/userz")
+          
            return <Route key={path} path={path} element={<RouteComp />}></Route>
           }        )            
         }                 

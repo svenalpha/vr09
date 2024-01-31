@@ -39,6 +39,16 @@ export default function About() {
    await axios.get('/userz')
          .then((res) => {setUserz(res.data)})
          .catch(err => {console.log("in About.jsx, error message following axios.get userz",err)});  
+  
+  
+         await axios.get('apix/userz')
+         .then((res) => {setUserz(res.data)})
+         .catch(err => {console.log("in About.jsx, error message following axios.get apix/userz",err)});  
+  
+
+
+  
+  
   }    //  end doEntriesx
 
 

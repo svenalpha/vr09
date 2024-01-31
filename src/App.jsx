@@ -63,10 +63,16 @@ routes.splice(index2, 1); routes.push(Error404);
 //   end original working routes
 
 
-routes.push({ "name": "route3",             
-              "path": "/userz",  
-              "component": "/userz",     
-          });                              
+routes.push({ 
+             path: "/userz",    
+             loader() {return json({ message: "Welcome to React Router!" });
+                      },
+
+              Component() { 
+                  let data = useLoaderData();
+                  return <h4>{data.message}</h4>;   
+                          }      
+            },);                              
 
 
 
@@ -106,6 +112,7 @@ if (!Show) {return null}
         {routes.map(({ path, component: RouteComp }) => 
           {console.log("app.jsx Routes path =",path);     
            console.log("App.js Routes RouteComp  =",RouteComp );
+           if (path != "/userz")
            return <Route key={path} path={path} element={<RouteComp />}></Route>
           }        )            
         }                 

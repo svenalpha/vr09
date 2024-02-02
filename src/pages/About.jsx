@@ -7,7 +7,7 @@ import {module_StrClass,
 import GetEntries from "../GetEntries";     
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-
+import { json } from "react-router-dom";
 
 const doEntriesx =  async () => 
 {console.log("in GetEntriesx,  pre fetch     ");
@@ -41,10 +41,92 @@ export default function About() {
          .catch(err => {console.log("in About.jsx, error message following axios.get userz",err)});  
   
   
-         await axios.get('apix/userz')
+         await axios.get('/userz')
          .then((res) => {setUserz(res.data)})
          .catch(err => {console.log("in About.jsx, error message following axios.get apix/userz",err)});  
   
+
+
+  //  1 
+  console.log("in About.jsx, doLoad No 1");  
+  await axios.get("/api/workoutsx/testx")
+  //axios.get("/apix/userz")
+  //axios.get("http://localhost:5173/userz")
+  .then(res =>{//setUserz(res.data);
+               //console.log("in About.jsx, in doLoad, userz = ",userz);
+               console.log("in About.jsx, in doLoad, /api/workoutsx/testx res.data = ",res.data); 
+              }
+       )
+  .catch(err =>{console.log("catch err = ",err)   
+               }         
+        );  
+
+ // 2
+ console.log("in About.jsx, doLoad No 2"); 
+   await axios.get("/api/workoutsx/testx")
+        //axios.get("/apix/userz")
+        //axios.get("http://localhost:5173/userz")
+        .then(res =>{//setUserz(res.data);
+                     //console.log("in About.jsx, in doLoad, userz = ",userz);
+                     console.log("in About.jsx, in doLoad, /api/workoutsx/testx res.data = ",res.data); 
+                    }
+             )
+        .catch(err =>{console.log("catch err = ",err)   
+                     }         
+              );  
+    
+
+
+
+
+// 3   
+console.log("in About.jsx, doLoad No 3"); 
+  //await axios.get("/userz")
+  await axios.get("/test1")
+  //axios.get("/apix/userz")
+  //axios.get("http://localhost:5173/userz")
+  .then(res =>{//setUserz(res.data);
+               //console.log("in About.jsx, in doLoad, userz = ",userz);
+               console.log("in About.jsx, in doLoad, /test1 res.data  json(res.data)= ",json(res.data.body)); 
+              }
+       )
+  .catch(err =>{console.log("catch err of /api/workoutsx/testx= ",err)   
+               }         
+        );  
+  
+
+        //4
+  console.log("in About.jsx, doLoad No 4");      
+  await axios.get("/api/workoutsx/testx")
+  //axios.get("/apix/userz")
+  //axios.get("http://localhost:5173/userz")
+  .then(res =>{//setUserz(res.data);
+               //console.log("in About.jsx, in doLoad, userz = ",userz);
+               console.log("in About.jsx, in doLoad, /test1 res.data = ",res.data); 
+              }
+       )
+  .catch(err =>{console.log("catch err of test1= ",err)   
+               }         
+        );  
+
+      //5
+      console.log("in About.jsx, doLoad No 5");      
+      await axios.get("/api/workouts/test3")
+      //axios.get("/apix/userz")
+      //axios.get("http://localhost:5173/userz")
+      .then(res =>{//setUserz(res.data);
+                   //console.log("in About.jsx, in doLoad, userz = ",userz);
+                   console.log("in About.jsx,  doLoad no5, /api/workouts/test3 res.data = ",res.data); 
+                  }
+           )
+      .catch(err =>{console.log("catch err of test1= ",err)   
+                   }         
+            );            
+
+
+
+
+
 
 
   

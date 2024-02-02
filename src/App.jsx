@@ -1,7 +1,6 @@
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes , json, useLoaderData } from 'react-router-dom';
 import {useEffect, useState} from "react";   
 import cors from 'cors';
-
 
 
 
@@ -63,16 +62,51 @@ routes.splice(index2, 1); routes.push(Error404);
 //   end original working routes
 
 
-routes.push({ 
-             path: "/userz",    
-             loader() {return json({ message: "Welcome to React Router!" });
-                      },
+//routes.push({ path: "/userz",    
+//             loader() {return json({ message: "Welcome to React Router!" });
+//                      },
+//
+//              Component() { 
+//                  let data = useLoaderData();
+//                  return <h4>{data.message}</h4>;   
+//                          }      
+//            },);    
 
-              Component() { 
-                  let data = useLoaderData();
-                  return <h4>{data.message}</h4>;   
-                          }      
-            },);                              
+            console.log("pre /test1");
+            routes.push({
+                          path: "/test1", 
+                          loader() {return json({ message: "Welcome to React Router!" });
+                                   },                        
+                        Component() {
+                           let data = useLoaderData();  
+                                                
+                           return <h1>{data.message}</h1>;
+                                   } 
+                       },
+            
+                        );                            
+            
+                        console.log("pre /api/workoutsx/testx");
+                        routes.push({
+                          path: "/api/workoutsx/testx", 
+                          loader() {return json({ message: "Welcome to React Router!" });
+                                   },                        
+                        Component() {
+                           let data = useLoaderData();  
+                                                
+                           return <h1>{data.message}</h1>;
+                                   } 
+                       },
+            
+                        );       
+            
+            
+            
+            var int = routes.length;
+            //routes.push(name = "route3");
+            console.log("in App, after creation of new element route3   routes = ", routes );
+
+
 
 
 
@@ -112,8 +146,9 @@ if (!Show) {return null}
         {routes.map(({ path, component: RouteComp }) => 
           {console.log("app.jsx Routes path =",path);     
            console.log("App.js Routes RouteComp  =",RouteComp );
-          
-           return <Route key={path} path={path} element={<RouteComp />}></Route>
+           if (path == "/test1" || path == "/api/workoutsx/testx")
+           return <Route key={path} path={path} ></Route>
+           else return <Route key={path} path={path} element={<RouteComp />}></Route>
           }        )            
         }                 
       </Routes>

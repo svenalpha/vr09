@@ -82,6 +82,13 @@ router.get("/*",(req,res)=>{/* res.json({mssg: "404/404/404/404"}); */
                           }                              
           );                                                
 
+router.get('/test99',(req,res) => {
+            console.log("in workoutRoutes router.get /test99 ");
+            res.json({mssg:'  mssg of router.get /test99 '});
+        });
+        
+
+
 /*  module.exports=router;  */ 
 /* export default router; */
 

@@ -123,7 +123,18 @@ console.log("in About.jsx, doLoad No 3");
                    }         
             );            
 
-
+            console.log("in About.jsx, doLoad No 6");      
+            await axios.get("/api/workouts/test99")
+            //axios.get("/apix/userz")
+            //axios.get("http://localhost:5173/userz")
+            .then(res =>{//setUserz(res.data);
+                         //console.log("in About.jsx, in doLoad, userz = ",userz);
+                         console.log("in About.jsx,  doLoad no5, /api/workouts/test99 res.data = ",json(res.data)); 
+                        }
+                 )
+            .catch(err =>{console.log("catch err of test1= ",err)   
+                         }         
+                  );   
 
 
 

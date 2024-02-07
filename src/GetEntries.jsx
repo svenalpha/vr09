@@ -27,6 +27,7 @@ import "./app.css";
 
 const url = 'https://api.github.com/users';  
 const urlx = 'https://localhost:5173/api/workoutsx';
+const url1 = '/api/workout';
 //const response = await fetch("https://api.github.com/users");
 
 // second argument
@@ -46,23 +47,35 @@ function GetEntries() {
 
 
 
-async function doEntriesy(credentials) {
-  return await fetch(urlx, 
-  {   method: 'GET',
-      headers: {
-          'Content-Type': 'application/json',
-       //   'Access-Control-Allow-Origin': 'true' // incorrect
-      },
-      body: JSON.stringify(credentials)
-  })
-      .then(data => data.json() )  // setItems(data);      
-                        
-      .then((data) => setItems(data)) //console.log(" data in doEntriesx = ",data) )                         
-           
-}
+//async function doEntriesy(credentials) {
+//  return await fetch(urlx, 
+//  {   method: 'GET',
+//      headers: {
+//          'Content-Type': 'application/json',
+//       //   'Access-Control-Allow-Origin': 'true' // incorrect
+//      },
+//      body: JSON.stringify(credentials)
+//  })
+//      .then(data => data.json() )  // setItems(data);      
+//                        
+//      .then((data) => setItems(data)) //console.log(" data in doEntriesx = ",data) )                         
+//           
+//}
 
 
-
+const doEntries1 =  async () => 
+{console.log("in GetEntriesx, doEntries1  pre fetch     ");
+//await fetch('http://localhost:5173/getWorkouts')
+ await fetch('/api/getWorkout')
+       .then((response) => response.json())
+       .then((data) => {setItems(data);
+                       }
+            )  
+        .then(function (response){         
+         console.log(" end in GetEntries doEntries1() ");           
+                                 }            
+             )                           
+}    //  end doEntriesx
 
 
 
@@ -86,19 +99,19 @@ async function doEntriesy(credentials) {
   {/////////   (in useEffect to async doEntries)   working  /////////////////////////////
 console.log("in GetEntries,  pre fetch/axios ");
  await axios({method: 'GET',
-              url: "/api/getWorkouts", 
+              url: "/api/getWorkout", 
               //url: "http://localhost:5173/getWorkouts", 
               //url: "https://jasnplaceholder.typicode.com/todos", 
-              withCredentials: false,
-              params: { _limit: 2 }, 
+//              withCredentials: false,
+//              params: { _limit: 2 }, 
            //data: JSON.stringify(fetchOptions.data),
            //responseType: 'arraybuffer',
            //responseEncoding: 'binary',
-           headers: {//'Content-Type': 'application/vnd.api+json',
-                     // 'Content-Type': 'text/plain;charset=ISO-8859-15',
-                     'Content-Type': 'application/vnd.api+json;text/plain;charset=ISO-8859-15',
-                      Accept: 'application/vnd.api+json',
-                    }
+//           headers: {//'Content-Type': 'application/vnd.api+json',
+//                     // 'Content-Type': 'text/plain;charset=ISO-8859-15',
+//                     'Content-Type': 'application/vnd.api+json;text/plain;charset=ISO-8859-15',
+//                      Accept: 'application/vnd.api+json',
+//                    }
             //config: {params: {_limit: 2 }},        
                      
                   })              
@@ -120,7 +133,7 @@ console.log("in GetEntries,  pre fetch/axios ");
   }  // end  doEntries
 
 
-  useEffect(() =>{ doEntriesy(); //doEntriesx();//doEntries();
+  useEffect(() =>{ doEntries1(); //doEntriesx();//doEntries();
 
 //////////////////////////////////////////////////////////////////
 ////

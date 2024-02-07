@@ -7,6 +7,7 @@ import cors from 'cors';
 
 //import { BrowserRouter } from 'react-router-dom';
 import "./app.css";
+import GetEntries from "./GetEntries";
 
 // Auto generates routes from files under ./pages
 // https://vitejs.dev/guide/features.html#glob-import
@@ -65,42 +66,64 @@ routes.splice(index2, 1); routes.push(Error404);
 //routes.push({ path: "/userz",    
 //             loader() {return json({ message: "Welcome to React Router!" });
 //                      },
-//
 //              Component() { 
 //                  let data = useLoaderData();
 //                  return <h4>{data.message}</h4>;   
 //                          }      
 //            },);    
 
-            console.log("pre /test1");
-            routes.push({
-                          path: "/test1", 
-                          loader() {return json({ message: "Welcome to React Router!" });
-                                   },                        
-                        Component() {
-                           let data = useLoaderData();  
-                                                
-                           return <h1>{data.message}</h1>;
-                                   } 
-                       },
-            
-                        );                            
-            
-                        console.log("pre /api/workoutsx/testx");
-                        routes.push({
-                          path: "/api/workoutsx/testx", 
-                          loader() {return json({ message: "Welcome to React Router!" });
-                                   },                        
-                        Component() {
-                           let data = useLoaderData();  
-                                                
-                           return <h1>{data.message}</h1>;
-                                   } 
-                       },
-            
-                        );       
-            
-            
+
+//XX
+//            console.log("pre /test1");
+//            routes.push({
+//                          path: "/test1", 
+//                          loader() {return json({ message: "Welcome to React Router!" });
+//                                   },                        
+//                        Component() {
+//                           let data = useLoaderData();  
+//                           return <h1>{data.message}</h1>;
+//                                   } 
+//                       },
+//                        );                            
+
+//xx            
+//                        console.log("pre /api/workoutsx/testx");
+//                        routes.push({
+//                          path: "/api/workoutsx/testx", 
+//                          loader() {return json({ message: "Welcome to React Router!" });
+//                                   },                        
+//                        Component() {
+//                           let data = useLoaderData();  
+//                                                
+//                           return <h1>{data.message}</h1>;
+//                                   } 
+//                       },
+//            
+//                        );       
+
+//                        console.log("pre    /apix/test88");
+//                        routes.push({
+//                          path: "/apix/test88", 
+//                          loader() {return json({ message: "Welcome to React Router!" });
+//                                   },                        
+//                        Component() {
+//                           let data = useLoaderData();  
+//                                                
+//                          return <h1>{data.message}</h1>;
+//                                   } 
+//                       },
+//        
+//                        );                         
+
+
+console.log("  pre GetEntries route ");   
+routes.push({
+         name:"GetEntries", 
+         path: "../GetEntries",
+         component: <GetEntries />,        
+            },                         
+           );   
+        
             
             var int = routes.length;
             //routes.push(name = "route3");

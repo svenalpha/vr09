@@ -12,7 +12,7 @@ import { json } from "react-router-dom";
 const doEntriesx =  async () => 
 {console.log("in GetEntriesx,  pre fetch     ");
 //await fetch('http://localhost:5173/getWorkouts')
- await fetch('/api/getWorkouts')
+ await fetch('/api/getWorkout')
        .then((response) => response.json())
        .then((data) => {setItems(data);
                        }
@@ -29,21 +29,22 @@ const doEntriesx =  async () =>
 
 export default function About() {
   const [userz,setUserz]=useState([]);
-
+  const [blogs,setBlogs] = useState(null); 
 
 
 
   const doLoad =  async () => 
-  {console.log("in About.jsx,  preeeee axios     ");
-  //await fetch('http://localhost:5173/getWorkouts')
-   await axios.get('/userz')
-         .then((res) => {setUserz(res.data)})
-         .catch(err => {console.log("in About.jsx, error message following axios.get userz",err)});  
+  {console.log("in About.jsx,  preeeee fetch('http://localhost:5173/src/db.json/blogs ");
+  await fetch('http://localhost:5173/src/db/blogs')
+   //await axios.get('/userz')
+         .then((res) =>  {return res.json();})          //{setBlogs(res.data)})
+         .then((data) => {console.log(" data =",data);}) 
+         .catch(err => {console.log("in About.jsx, error message following fetch('http://localhost:5173/src/db/blogs",err)});  
   
   
-         await axios.get('/userz')
-         .then((res) => {setUserz(res.data)})
-         .catch(err => {console.log("in About.jsx, error message following axios.get apix/userz",err)});  
+         //await axios.get('/userz')
+         //.then((res) => {setUserz(res.data)})
+         //.catch(err => {console.log("in About.jsx, error message following axios.get apix/userz",err)});  
   
 
 
@@ -97,7 +98,7 @@ console.log("in About.jsx, doLoad No 3");
 
         //4
   console.log("in About.jsx, doLoad No 4");      
-  await axios.get("/api/workoutsx/testx")
+  await axios.get("/api/workout")    //("/api/workoutsx/testx")
   //axios.get("/apix/userz")
   //axios.get("http://localhost:5173/userz")
   .then(res =>{//setUserz(res.data);
@@ -136,7 +137,18 @@ console.log("in About.jsx, doLoad No 3");
                          }         
                   );   
 
-
+                  console.log("in About.jsx, doLoad No 7");      
+                  await axios.get("/api/workouts/test99")
+                  //axios.get("/apix/userz")
+                  //axios.get("http://localhost:5173/userz")
+                  .then(res =>{//setUserz(res.data);
+                               //console.log("in About.jsx, in doLoad, userz = ",userz);
+                               console.log("in About.jsx,  doLoad no5, /api/workouts/test99 res.data = ",json(res.data)); 
+                              }
+                       )
+                  .catch(err =>{console.log("catch err of test1= ",err)   
+                               }         
+                        );   
 
 
 
@@ -187,7 +199,7 @@ useEffect(() =>{
       <h4 className={module_StrClass1}>with fetch using module_StrClass1 hhhhhhhhhh  inside About pagee</h4>
       <h4 className={module_StrClass2}>with fetch using module_StrClass1 hhhhhhhhhh  inside About pagee</h4>
       <h4>above GetEntries</h4>
-      
+      <GetEntries />
       <h4>below GetEntries</h4>
 
       <div>{addAndMultiply(1, 2, 3)}</div>

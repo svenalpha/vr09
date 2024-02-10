@@ -119,10 +119,10 @@ var enableCORS=function (req,res,next){
 //// .catch((err)=>console.log(err));
 
 
-app.use(cors({origin:"*",  //"http://Localhost:5173",  // "https://vr09.onrender.com",
-              //headers: ["Content-Type"],       
-              //credentials: true,
-             }));
+//app.use(cors({origin:"*",  //"http://Localhost:5173",  // "https://vr09.onrender.com",
+//              //headers: ["Content-Type"],       
+//              //credentials: true,
+//             }));
 
 
  //app.use((req,res,next)=>{console.log("dummy middleware req.path =",req.path);   
@@ -130,6 +130,7 @@ app.use(cors({origin:"*",  //"http://Localhost:5173",  // "https://vr09.onrender
  //                        }                      
  //       );      
 
+ app.use(cors());
 
 
 
@@ -171,7 +172,19 @@ app.use(cors({origin:"*",  //"http://Localhost:5173",  // "https://vr09.onrender
 
   
 // routes would be here, but moved to routes/workoutRoutes
+
+
+
 app.use(express.json());  
+
+// app.use((req,res,next) => {res.setHeader("Access-Control-Allow-Origin", "req.headers.origin");                                                                      
+//                            res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");     
+//                            res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE,OPTIONS");   
+//                           } 
+//        );
+
+
+
 
 
 app.get("/getWorkouts", (req, res) => {
@@ -221,6 +234,16 @@ app.get('/testy',(req,res) =>{
       
 
   app.use('*', async (req, res) => {
+
+
+    res.setHeader("Access-Control-Allow-Origin", "req.headers.origin");                                                                      
+                                res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");     
+                                res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE,OPTIONS");   
+    
+
+
+
+
     try {
       const url = req.originalUrl
 

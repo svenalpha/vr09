@@ -6,10 +6,10 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
-
+//import { router } from "./src/routes/workoutRoutes.js";
 
 import mongoose from 'mongoose';
-import  WorkoutModelDb     from "./models/workoutDbModel.js";  
+import { json } from "react-router-dom";
 
 //const mongoose =require("mongoose");
 //const Blag = require("./models/blogModel");
@@ -66,7 +66,9 @@ function GetEntries() {
 const doEntries1 =  async () => 
 {console.log("in GetEntriesx, doEntries1  pre fetch     ");
 //await fetch('http://localhost:5173/getWorkouts')
- await fetch('/api/getWorkout')
+// await fetch('/api/getWorkout/test99')
+// await fetch('/api/getWorkout/testx')
+ await axios.get("/api/workout")   
        .then((response) => response.json())
        .then((data) => {setItems(data);
                        }
@@ -84,7 +86,8 @@ const doEntries1 =  async () =>
   const doEntriesx =  async () => 
   {console.log("in GetEntriesx,  pre fetch     ");
   //await fetch('http://localhost:5173/getWorkouts')
-   await fetch('/api/getWorkouts')
+   //await fetch('/api/getWorkouts')
+   await fetch(urlx)
          .then((response) => response.json())
          .then((data) => {setItems(data);
                          }

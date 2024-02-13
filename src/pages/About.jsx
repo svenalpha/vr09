@@ -66,6 +66,22 @@ export default function About() {
   .catch(err1 =>{console.log("catch err1 = ",err1)   
                }         
         );  
+ //  1a 
+ console.log("in About.jsx, doLoad No 1a");  
+ await axios.get("/api/workoutsx/testz")
+ //axios.get("/apix/userz")
+ //axios.get("http://localhost:5173/userz")
+ .then(res1z =>{//setUserz(res.data);
+              //console.log("in About.jsx, in doLoad, userz = ",userz);
+              console.log("in About.jsx, in doLoad, /api/workoutsx/testz res1z.data = ",res1z.data) 
+             }
+      )
+ .catch(err1z =>{console.log("catch err1z = ",err1z)   
+              }         
+       );  
+
+
+
 
  // 2
 // console.log("in About.jsx, doLoad No 2"); 

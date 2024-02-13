@@ -115,7 +115,7 @@ routes.splice(index2, 1); routes.push(Error404);
 //        
 //                        );                         
 
-
+/*XX
 console.log("  pre GetEntries route ");   
 routes.push({
          name:"GetEntries", 
@@ -129,7 +129,25 @@ routes.push({
             //routes.push(name = "route3");
             console.log("in App, after creation of new element route3   routes = ", routes );
 
-
+console.log("  pre GetEntries route ");   
+routes.push({
+         name:"GetEntries", 
+         path: "../GetEntries",
+         component: <GetEntries />,        
+            },                         
+           );   
+        
+console.log("  pre About userz ");   
+routes.push({name:"userz", 
+             path: "/userz",
+             component: <server />,        
+            },                         
+           ); 
+XX*/
+            
+            var int = routes.length;
+            //routes.push(name = "route3");
+            console.log("in App, after creation of new element route3   routes = ", routes );
 
 
 

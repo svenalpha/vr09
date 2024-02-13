@@ -131,6 +131,7 @@ var enableCORS=function (req,res,next){
  //       );      
 
  app.use(cors());
+ //app.use(express.static("dist"));
 
 
 
@@ -236,11 +237,11 @@ app.get('/testy',(req,res) =>{
   app.use('*', async (req, res) => {
 
 
-    res.setHeader("Access-Control-Allow-Origin", "req.headers.origin");                                                                      
-                                res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");     
-                                res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE,OPTIONS");   
-    
-
+    //res.setHeader("Access-Control-Allow-Origin", "req.headers.origin");                                                                      
+    //res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");     
+    //ress.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE,OPTIONS");   
+                                  
+                
 
 
 

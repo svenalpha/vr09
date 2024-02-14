@@ -56,7 +56,7 @@ app.use(express.json());
 //app.options('*',cors());
 
 //app.use(cors());
-//app.use(cors());
+
 
 //app.options('*',cors());
 
@@ -66,12 +66,23 @@ app.use(express.json());
  // next();   
  //                         }                      
  //        );                               
-app.use(express.json());
+
 //app.use((req,res,next)=>{//console.log("in server.js, testing middleware  req.path =",req.path);   
 ////console.log("req.method =",req.method);
 //next();   
 //}                                       
 //);  
+app.use(cors());
+app.use(function(req,res,next){
+      console.log("in server.js app.use res.headers");  
+      res.header("Access-Control-Allow-Origin","*");
+      res.header("Access-Control-Allow-Methods","GET,HEAD,OPTIONS,POST,PUT,DELETE");
+      res.header("Access-Control-Allow-Headers","Origin,X-Requested-With,Content-Type,Accept,Authorization");
+      if ('OPTIONS' == req.method) {res.send(200);}
+      next();
+                              } 
+       );
+
 app.use("/api/workout",router);  /* app.use("/src/routes/workout", router);??? */
 app.use('/api/workoutsx',routerx);
 //app.listen(process.env.PORT || 5173);
@@ -130,8 +141,8 @@ var enableCORS=function (req,res,next){
  //                        }                      
  //       );      
 
- app.use(cors());
- //app.use(express.static("dist"));
+
+ app.use(express.static("dist"));
 
 
 

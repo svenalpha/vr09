@@ -1,3 +1,4 @@
+import express from 'express';
 import { useEffect } from "react";    //xxx useState 
 import {WorkoutDisplayDetails} from "../components/WorkoutDisplayDetails.jsx"
 import {CreateWorkoutForm} from "../components/CreateWorkoutForm.jsx"
@@ -14,7 +15,7 @@ import GetEntries from "../GetEntries";
 //import { MongoClient, ServerApiVersion } from 'mongodb';
 //import { WorkoutModelDb } from "../models/workoutDbModel.js";
 //const url = 'http://localhost:5173/api/workout';      //  const url = 'https://api.github.com/users';  
-const url =  './src/routes/workoutRoutes/test99';    // '/api/workout/test99'
+const url =  '/api/workout/test99';    //'./src/routes/workoutRoutes/test99';    // '/api/workout/test99'
 //const urlx = 'http://localhost:5173/api/workoutsx/';
 //  const urlx = 'http://localhost:5173/api/workoutsx/testx';
 const urlx = '/api/testy';

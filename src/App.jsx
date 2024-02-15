@@ -144,6 +144,26 @@ routes.push({name:"userz",
             },                         
            ); 
 XX*/
+console.log("  pre workoutRoutes test99 ");   
+routes.push({name:"test99", 
+             path: "/api/workout/test99",
+             element: <workoutRoutes />,        
+            },                         
+           ); 
+
+console.log("  pre workoutRoutes test88 ");   
+routes.push({name:"test88", 
+             path: "/api/workout/test88",
+             loader() {return json({message: "inside React Router  "});},  
+             component() {let data88 = useLoaderData();
+                          return <h4>data.message</h4>;
+                         },
+            },                         
+           );                     
+
+
+
+
             
             var int = routes.length;
             //routes.push(name = "route3");

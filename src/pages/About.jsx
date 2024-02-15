@@ -61,10 +61,10 @@ export default function About() {
   .then(res1 =>{//setUserz(res.data);
                //console.log("in About.jsx, in doLoad, userz = ",userz);
                console.log("in About.jsx, in doLoad, /api/workoutsx/testx res1.data = ",res1.data) 
-              }
+               }
        )
   .catch(err1 =>{console.log("catch err1 = ",err1)   
-               }         
+                }             
         );  
  //  1a 
  console.log("in About.jsx, doLoad No 1a");  
@@ -106,18 +106,11 @@ export default function About() {
     console.log("data3 = ",data3);
        }catch(err3){ console.log("err3 = ",err3);
                    }
-//  //await axios.get("/test1")  
-//  //await fetch("/test1")  
-//  axios.get("/apix/userz")
-//  //axios.get("http://localhost:5173/userz")
-//  .then(res3 =>{//setUserz(res.data);
-//               //console.log("in About.jsx, in doLoad, userz = ",userz);
-//               console.log("in About.jsx, in doLoad, /test1 res.data  json(res3.data)= ",json(res3.data.body)); 
-//              }
-//       )
-//  .catch(err3 =>{console.log("catch err3 of /api/workoutsx/testx= ",err3)   
-//               }         
-//        );  
+  //await axios.get("/test1")  
+  //await fetch("/test1")  
+
+
+ 
   
 
         //4
@@ -207,6 +200,32 @@ export default function About() {
                   .catch(err7 =>{console.log("catch err of test1= ",err7)   
                                }         
                         );   
+
+console.log("in About.jsx, doLoad No 8");      
+await axios.get("/test99")
+//axios.get("/apix/userz")
+//axios.get("http://localhost:5173/userz")
+   .then(res8 =>{//setUserz(res.data);
+   //console.log("in About.jsx, in doLoad, userz = ",userz);
+         console.log("in About.jsx,  doLoad no8, /api/workout8/test99 res8.data = ",json(res8.data)); 
+                }                 
+        )                                                
+                        .catch(err8 =>{console.log("catch err of test99= ",err8)   
+                                     }         
+                              );   
+                         
+console.log("in About.jsx, doLoad No 8");      
+await axios.get("/test88")
+//axios.get("/apix/userz")
+//axios.get("http://localhost:5173/userz")
+ .then(res88 =>{//setUserz(res.data);
+ //console.log("in About.jsx, in doLoad, userz = ",userz);
+ console.log("in About.jsx,  doLoad no8, /api/workout8/test88 res88.data = ",json(res88.data)); 
+              }                 
+      )                                                
+.catch(err88 =>{console.log("catch err of test88= ",err88)   
+              }                          
+      );   
 
 
 

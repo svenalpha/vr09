@@ -1,5 +1,3 @@
-
-
 import { Link, Route, Routes , json, useLoaderData } from 'react-router-dom';
 import {useEffect, useState} from "react";   
 import cors from 'cors';
@@ -216,25 +214,15 @@ export function App()
 }    //   end   export function App() 
 
 
-//const doenv =  (req,res)=>{  
-//  /* console.log("inside workoutController.js  getEnv");  */ 
-//  /*const navigate = useNavigate;                      
-//  return(navigate("/Error404"))       
-// */    res.json({mssg: "inside doEnv in workoutController.js 98"});     
-//     console.log("inside export doEnv");
-//                                }    
+const doenv =  (req,res)=>{  
+  /* console.log("inside workoutController.js  getEnv");  */ 
+  /*const navigate = useNavigate;                      
+  return(navigate("/Error404"))       
+*/    res.json({mssg: "inside doEnv in workoutController.js 98"});     
+     console.log("inside export doEnv");
+                                }    
 
 //route.get("/extra",doEnv); 
 
      
-
-
-
-
-
-
-//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
-
-
 

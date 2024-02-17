@@ -86,7 +86,7 @@ app.use(function(req,res,next){
 app.use("/api/workout",router);  /* app.use("/src/routes/workout", router);??? */
 app.use('/api/workoutsx',routerx);
 //app.listen(process.env.PORT || 5173);
-app.use(express.static("dist"));
+app.use(express.static("dist"));  
 
 
 export async function createServer(

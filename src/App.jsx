@@ -170,9 +170,9 @@ XX*/
 export function App() 
 {
 // hydrate error solution. see ReadMe.txt  vr08  ////////
-//const [Show, setShow] = useState(false);
-//useEffect(()=>{setShow(true)},[]);
-//if (!Show) {return null} 
+const [Show, setShow] = useState(false);
+useEffect(()=>{setShow(true)},[]);
+if (!Show) {return null} 
 /////   end  hydrate error solution. see ReadMe.txt  vr08  ////////                            
 
 // original working routes

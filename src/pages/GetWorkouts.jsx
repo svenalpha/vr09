@@ -15,10 +15,11 @@ import GetEntries from "../GetEntries";
 //import { MongoClient, ServerApiVersion } from 'mongodb';
 //import { WorkoutModelDb } from "../models/workoutDbModel.js";
 //const url = 'http://localhost:5173/api/workout';      //  const url = 'https://api.github.com/users';  
-const url =  '../routes/workoutRoutes';//'/api/workout/test99';    //'./src/routes/workoutRoutes/test99';    // '/api/workout/test99'
+//const url =  '/test99'; /// /'/api/workout';// /test99';    //'./src/routes/workoutRoutes/test99';    // '/api/workout/test99'
 //const urlx = 'http://localhost:5173/api/workoutsx/';
 //  const urlx = 'http://localhost:5173/api/workoutsx/testx';
 const urlx = '/api/testy';
+const url =  '/api/workout/';// /test99';    //'./src/routes/workoutRoutes/test99';    // '/api/workout/test99'
 //'mongodb+srv://userx:654321%40a@cluster0.t8319.mongodb.net/Project0?retryWrites=true&w=majority';
 
 export default function GetWorkouts() 

@@ -111,7 +111,7 @@ export default function About() {
 
 
  
-  
+/*CC
 
         //4
   console.log("in About.jsx, doLoad No 4");      
@@ -175,6 +175,8 @@ export default function About() {
 //                   }         
 //q            );            
 
+
+
             console.log("in About.jsx, doLoad No 6");      
             await axios.get("/api/workouts/test99")
             //axios.get("/apix/userz")
@@ -227,7 +229,7 @@ await axios.get("/test88")
               }                          
       );   
 
-
+cc*/
 
   
   
@@ -276,7 +278,7 @@ useEffect(() =>{
       <h4 className={module_StrClass1}>with fetch using module_StrClass1 hhhhhhhhhh  inside About pagee</h4>
       <h4 className={module_StrClass2}>with fetch using module_StrClass1 hhhhhhhhhh  inside About pagee</h4>
       <h4>above GetEntries</h4>
-      <GetEntries />
+      
       <h4>below GetEntries</h4>
 
       <div>{addAndMultiply(1, 2, 3)}</div>

@@ -1,35 +1,18 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from 'vite' 
 import react from '@vitejs/plugin-react'
 
-
 export default defineConfig({
-  server:{proxy:{"/apix":"http://localhost:5173"
+  base: "/",
+  server:{proxy:{"/apix": {target: "'http://127.0.0.1:5173", //8080'http://localhost:5173",
+                           changeOrigin: true, 
+                           secure: false
+                          }
                 }
          },
-  base: '/',
   plugins: [react()],
   build: {
     outDir: "/dist/",
     emptyOutDir: true,
     minify: false,
-         },
+  },
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

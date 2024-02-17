@@ -1,3 +1,5 @@
+
+
 import { Link, Route, Routes , json, useLoaderData } from 'react-router-dom';
 import {useEffect, useState} from "react";   
 import cors from 'cors';
@@ -12,13 +14,8 @@ import GetEntries from "./GetEntries";
 // Auto generates routes from files under ./pages
 // https://vitejs.dev/guide/features.html#glob-import
 const pages = import.meta.glob('./pages/*.jsx', { eager: true })
-
 console.log("in app.jsx, import.meta.glob = ", import.meta.glob);
 console.log("in app.jsx, pages = ", pages);
-
-
-
-
 
 // original working routes
 const rx = Object.keys(pages).map((path) => {                              
@@ -144,22 +141,23 @@ routes.push({name:"userz",
             },                         
            ); 
 XX*/
-console.log("  pre workoutRoutes test99 ");   
-routes.push({name:"test99", 
-             path: "/api/workout/test99",
-             element: <workoutRoutes />,        
-            },                         
-           ); 
+//console.log("  pre workoutRoutes test99 ");   
+//routes.push({name:"test99", 
+//             path: "/api/workout/test99",
+//             element: <workoutRoutes />,        
+//            },                         
+//           ); 
 
-console.log("  pre workoutRoutes test88 ");   
-routes.push({name:"test88", 
-             path: "/api/workout/test88",
-             loader() {return json({message: "inside React Router  "});},  
-             component() {let data88 = useLoaderData();
-                          return <h4>data.message</h4>;
-                         },
-            },                         
-           );                     
+
+//console.log("  pre workoutRoutes test88 ");   
+//routes.push({name:"test88", 
+//             path: "/api/workout/test88",
+//             loader() {return json({message: "inside React Router  "});},  
+//             component() {let data88 = useLoaderData();
+//                          return <h4>data.message</h4>;
+//                         },
+//            },                         
+//           );                    // 
 
 
 
@@ -174,12 +172,9 @@ routes.push({name:"test88",
 export function App() 
 {
 // hydrate error solution. see ReadMe.txt  vr08  ////////
-const [Show, setShow] = useState(false);
-
-
-
-useEffect(()=>{setShow(true)},[]);
-if (!Show) {return null} 
+//const [Show, setShow] = useState(false);
+//useEffect(()=>{setShow(true)},[]);
+//if (!Show) {return null} 
 /////   end  hydrate error solution. see ReadMe.txt  vr08  ////////                            
 
 // original working routes
@@ -221,15 +216,25 @@ if (!Show) {return null}
 }    //   end   export function App() 
 
 
-const doenv =  (req,res)=>{  
-  /* console.log("inside workoutController.js  getEnv");  */ 
-  /*const navigate = useNavigate;                      
-  return(navigate("/Error404"))       
-*/    res.json({mssg: "inside doEnv in workoutController.js 98"});     
-     console.log("inside export doEnv");
-                                }    
+//const doenv =  (req,res)=>{  
+//  /* console.log("inside workoutController.js  getEnv");  */ 
+//  /*const navigate = useNavigate;                      
+//  return(navigate("/Error404"))       
+// */    res.json({mssg: "inside doEnv in workoutController.js 98"});     
+//     console.log("inside export doEnv");
+//                                }    
 
 //route.get("/extra",doEnv); 
 
      
+
+
+
+
+
+
+//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+
 

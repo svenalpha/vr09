@@ -86,7 +86,7 @@ app.use(function(req,res,next){
 app.use("/api/workout",router);  /* app.use("/src/routes/workout", router);??? */
 app.use('/api/workoutsx',routerx);
 //app.listen(process.env.PORT || 5173);
-
+app.use(express.static("dist"));
 
 
 export async function createServer(
@@ -99,11 +99,6 @@ export async function createServer(
   const indexProd = isProd
     ? fs.readFileSync(resolve('dist/client/index.html'), 'utf-8')
     : ''
-
-
-
-             
-
 
 /*BB
 var enableCORS=function (req,res,next){
@@ -142,7 +137,7 @@ var enableCORS=function (req,res,next){
  //       );      
 
 
- app.use(express.static("dist"));
+
 
 
 
@@ -240,19 +235,12 @@ app.get("/userz",(req,res) =>
        );   
        
 
-app.get('/testy',(req,res) =>{
-  res.send({mssg:'  mssg of /testy ggggggg  '});  // res.send, not res.json ?
-                             });
+//app.get('/testy',(req,res) =>{
+//  res.send({mssg:'  mssg of /testy ggggggg  '});  // res.send, not res.json ?
+//                             });
       
 
   app.use('*', async (req, res) => {
-
-
-    //res.setHeader("Access-Control-Allow-Origin", "req.headers.origin");                                                                      
-    //res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");     
-    //ress.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE,OPTIONS");   
-                                  
-                
 
 
 
